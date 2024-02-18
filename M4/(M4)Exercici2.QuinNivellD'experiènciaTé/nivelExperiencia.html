@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>(M4) Exercici 2. Quin nivell d'experiència té?</title>
+  <!--Crea un programa que sol·liciti a l’usuari/ària que introdueixi el seu nom i el nombre d’anys que porta treballant en una empresa. 
+   Després mostra per pantalla el seu nivell d’experiència, segons la següent taula:
+   -Menys de 2 anys: Nivell principiant.
+   -Entre 2 i 4 anys: Nivell intermedi.
+   -Més de 4 i fins a 7 anys: Nivell avançat.
+   -Més de 7 i fins a 10 anys: Nivell expert.
+   -Més de 10 anys: Nivell Gurú.-->
+</head>
+<body>
+  <h1>Nivel de experiencia</h1>
+  <p>¿Cúal es su nombre? <input type="text" id="nombre"></p>
+  <p>¿Cuántos años tiene? <input type="number" id="anios"></p>
+
+  <button onclick="CalcularExperiencia()">Nivel de experiencia</button>
+
+  <script>
+    function CalcularExperiencia(){
+      let nombre = document.getElementById("nombre").value;
+      let anios = parseInt(document.getElementById("anios").value);
+
+      if(anios>=0 && anios<2){
+        let mensaje = "PRINCIPIANTE";
+        alert(mensaje);
+      }
+      else if(anios<0){
+        let mensaje = "Valor no admitido";
+        alert(mensaje);
+      }
+      else if(anios>=2 && anios<4){
+        let mensaje = "INTERMEDIO";
+        alert(mensaje);
+      }
+      else if(anios>=4 && anios<7){
+        let mensaje = "AVANZADO";
+        alert(mensaje);
+      }
+      else if (anios>=7 && anios<10){
+        let mensaje = "EXPERTO";
+        alert(mensaje);
+      }
+      else {
+        let mensaje = "GURÚ";
+        alert(mensaje);
+      }
+    }
+
+  </script>
+  
+</body>
+</html>

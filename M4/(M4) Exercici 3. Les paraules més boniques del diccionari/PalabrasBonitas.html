@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>(M4) Exercici 3. Les paraules més boniques del diccionari.</title>
+</head>
+<!--Els estudis lingüístics moderns diuen que les paraules més boniques del diccionari són aquelles que 
+  contenen 9 lletres i comencen per la lletra 'H', o bé, contenen 5 lletres i comencen per la lletra 'P'.
+  Fes un programa que demani una paraula i determini si és bonica o no (segons el patró explicat prèviament).
+  El mètode charAt() segur que et pot ajudar en aquest exercici.-->
+<body>
+  <p>Escriba una palabra: <input type="text" id="palabraUsuario"></p>
+  <button onclick="esBonita()">¿Es bonita?</button>
+  <p id="mensaje"></p>
+  <script>
+    function esBonita(){
+      let palabraUsuario = document.getElementById("palabraUsuario").value;
+      console.log("La palabra es: ", palabraUsuario);
+      let longitudPalabra = palabraUsuario.length;
+      console.log("La palabra tiene", longitudPalabra);
+      let primeraLetra = palabraUsuario.charAt(0).toUpperCase();
+      console.log("La primera letra es:", primeraLetra);
+      let mensaje = " ";
+
+      if ((longitudPalabra == 9 && primeraLetra == "H") || (longitudPalabra == 5 && primeraLetra == "P")){
+        mensaje = "La palabra introducida es bonita";
+          alert (mensaje);        
+      }      
+      else {
+        mensaje = "Lo lamentamos, la palabra indicada no es bonita";
+        alert (mensaje);      
+      }
+    }    
+  </script>
+  
+</body>
+</html>

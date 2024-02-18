@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>(M4) Exercici EXTRA 2. Traductor de números.</title>
+  </head>
+  <body>
+    <details>
+      <h1 strong>(M4) Exercici EXTRA 2. Traductor de números.</h1>
+      <p>
+        Demana a l'usuari/ària un número entre 0 i 99 i mostra'l escrit en
+        lletres (pots fer-ho en català o castellà). Exemple: 56 (cinquanta-sis)
+        o 56 (cincuenta y seis)
+      </p>
+      <h3 style="color: rgb(243, 152, 167)">Objectius</h3>
+      <ol>
+        <li>Practicar l'ús d'estructures condicionals.</li>
+        <li>
+          Practicar els operadors per indicar quines són les condicions que
+          s'han de complir per executar el bloc de codi.
+        </li>
+        <li>
+          Millora l'expressivitat del teu codi buscant la llegibilitat i
+          aplicant bones pràctiques.
+        </li>
+      </ol>
+      <hr style="color: blueviolet" />
+    </details>
+    <p>Introduzca un número entero: <input type="number" id="num" /></p>
+    <button onclick="traducir()">Traducir</button>
+    <p id="resultado"></p>
+
+    <script>
+      function traducir() {
+        let numero = parseInt(document.getElementById("num").value);
+        console.log("Numero introducido: ", numero);
+
+        const unidadesLetras = [
+          "Cero",
+          "Uno",
+          "Dos",
+          "Tres",
+          "Cuatro",
+          "Cinco",
+          "Seis",
+          "Siete",
+          "Ocho",
+          "Nueve",
+          "Diez",
+          "Once",
+          "Doce",
+          "Trece",
+          "Catorce",
+          "Quince",
+        ];
+        const decenasLetras = [
+          " ",
+          "Diez",
+          "Veinte",
+          "Treinta",
+          "Cuarenta",
+          "Cincuenta",
+          "Sesenta",
+          "Setenta",
+          "Ochenta",
+          "Noventa",
+        ];
+
+        if (numero >= 1 && numero <= 15) {
+          document.getElementById("resultado").innerHTML =`El número introducido es: ${unidadesLetras[numero]}`;
+            unidadesLetras[numero];
+
+        } else if (numero > 15 && numero <= 99) {
+          let decena = parseInt(numero / 10);
+          console.log("Decenas: ", decena);
+
+          let unidad = numero % 10;
+          console.log("Unidades: ", unidad);
+
+          if(unidad == 0){
+            document.getElementById("resultado").innerHTML = `El número introducido es: ${decenasLetras[decena]}`;
+          }
+          else{
+            document.getElementById("resultado").innerHTML = `El número introducido es: ${decenasLetras[decena]} y ${unidadesLetras[unidad]}`;
+            console.log(decenasLetras[decena],"y", unidadesLetras[unidad]);
+          }         
+          
+        } else {
+          document.getElementById("resultado").innerHTML =
+            "ERROR, introduzca un número del 1 al 99";
+        }
+      }
+    </script>
+  </body>
+</html>

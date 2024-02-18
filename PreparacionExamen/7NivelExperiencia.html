@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>(M4) Exercici 2. Quin nivell d'experiència té?</title>
+</head>
+<body>
+  <h4>Crea un programa que sol·liciti a l’usuari/ària que introdueixi el seu nom i el nombre d’anys que porta treballant en una empresa. <br>
+    Després mostra per pantalla el seu nivell d’experiència, segons la següent taula:<br>
+    Menys de 2 anys: Nivell principiant. <br>   
+    Entre 2 i 4 anys: Nivell intermedi. <br>   
+    Més de 4 i fins a 7 anys: Nivell avançat.  <br>  
+    Més de 7 i fins a 10 anys: Nivell expert. <br>   
+    Més de 10 anys: Nivell Gurú.</h4><br>
+    <hr>
+
+    <p>¿Cuántos años lleva trabajando? <input type = "number" id = "anios"></p>
+    <button onclick="calculaExperiencia()">Calcular experiencia</button>
+    <p id = "resultado"></p>
+
+    <script>
+      function calculaExperiencia(){
+        let aniosEx = parseInt(document.getElementById("anios").value);
+        console.log("Años experiencia: ", aniosEx);
+
+        //CON SWITCH: (no funciona)
+       /* switch(aniosEx){
+          case aniosEx<2: document.getElementById("resultado").innerHTML = "Nivel principiante";
+          case aniosEx>=2 && aniosEx<4: document.getElementById("resultado").innerHTML = "Nivel intermedio";
+          case aniosEx>=4 && aniosEx<7: document.getElementById("resultado").innerHTML = "Nivel avanzado";
+          case aniosEx>=7 && aniosEx<10: document.getElementById("resultado").innerHTML = "Nivel experto";
+          case aniosEx>=10: document.getElementById("resultado").innerHTML = "Nivel gurú";
+        }*/
+
+        //CON IF:
+        if(aniosEx<2){
+          document.getElementById("resultado").innerHTML = "Nivel principiante";
+        }
+        else if (aniosEx>=2 && aniosEx<4){
+          document.getElementById("resultado").innerHTML = "Nivel intermedio";
+        }
+        else if (aniosEx>=4 && aniosEx<7){
+          document.getElementById("resultado").innerHTML = "Nivel avanzado";
+        }
+        else if (aniosEx>=7 && aniosEx<10){
+          document.getElementById("resultado").innerHTML = "Nivel experto"; 
+        }
+        else {
+          document.getElementById("resultado").innerHTML = "Nivel gurú";
+        }
+      }
+    </script>
+  
+</body>
+</html>

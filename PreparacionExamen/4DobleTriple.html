@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calcular el doble y el triple</title>
+</head>
+<!--Escriu un programa JavaScript que llegeix un nombre (número) i mostra per pantalla el doble i el triple d'aquest número.-->
+<body>
+  <h1>CALCULAR EL DOBLE Y EL TRIPLE</h1>
+  <p>Introduzca un número <input type = "number" id = "numero"></p>
+  <button onclick="calculaDoble()">Calcular doble</button>
+  <button onclick="calculaTriple()">Calcular triple</button>
+  <p id = "mensaje"></p>
+
+  <script>
+    //let numero = document.getElementById("numero").value;
+      //let numeroParseado = parseInt(numero);
+
+    function calculaDoble(){
+      let numero = document.getElementById("numero").value;
+      console.log ("numero : ", numero);
+      let numeroParseado = parseInt(numero);
+      console.log ("Numero parseado: ", numeroParseado);
+      let doble = numeroParseado * 2;
+      let mensaje = document.getElementById ("mensaje").innerHTML = "El doble de " + numeroParseado + "es " + doble;
+    }
+    function calculaTriple(){
+      let numero = document.getElementById("numero").value;
+      let numeroParseado = parseInt(numero);
+      let triple = numeroParseado * 3; 
+      let mensaje = document.getElementById ("mensaje").innerHTML = "El triple de " + numeroParseado + "es " + triple;
+    }
+  </script>
+</body>
+</html>

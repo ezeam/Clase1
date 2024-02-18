@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>(M4) Exercici 1. Nombres enters</title>
+  </head>
+  <body>
+    <p strong>
+      Crea un programa que sol·liciti a l'usuari/ària que introdueixi dos
+      nombres enters per teclat i mostri per pantalla el major dels dos.
+    </p>
+
+    
+    <p>Introduzca un número entero: <input type="number" id="numero1" /></p>
+    <p>Introduzca un número entero: <input type="number" id="numero2" /></p>
+
+    <button onclick="esMayor()">¿Cúal es mayor?</button>
+
+    <p id="resultado"></p>
+
+    <script>
+      function esMayor() {
+     
+        let num1 = parseInt(document.getElementById("numero1").value);
+        console.log("Número 1: ", num1);
+        let num2 = parseInt(document.getElementById("numero2").value);
+        console.log("Número 2: ", num2);
+
+       /* CON IF:
+
+       if (num1 > num2) {
+          document.getElementById(
+            "resultado"
+          ).innerHTML = `El número ${num1} es mayor al número ${num2}`;
+        }
+        else if (num1 < num2){
+          document.getElementById(
+            "resultado"
+          ).innerHTML = `El número ${num1} es menor al número ${num2}`;
+        }
+        else {
+          document.getElementById(
+            "resultado"
+          ).innerHTML = `El número ${num1} y el número ${num2} son iguales`;
+        }*/
+
+        // CON SWITCH: (no funciona)
+
+        switch(num1){
+          case num1>num2 : alert("El primer número es mayor que el segundo");break;
+          case num1<num2 : alert("El segundo número es mayor que el primero");break;
+          //default : alert("Los números son iguales");break;
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>(M4) Exercici 4. Escriu Números en Lletres</title>
+  </head>
+  <!--Crea un programa que sol·liciti a l'usuari/ària que introdueixi un número de l'1 al 10 i mostri per pantalla el seu equivalent 
+en lletres (per exemple, 1 es mostraria com "un", 2 com "dos", etc.).
+Objectius
+Practicar l'ús d'estructures condicionals.
+Practicar els operadors per indicar quines són les condicions que s'han de complir per executar el bloc de codi.
+Millora l'expressivitat del teu codi buscant la llegibilitat i aplicant bones pràctiques.-->
+  <body>
+    <h1 bold>De números a letras</h1>
+    <p>
+      Introduzca un número del 1 al 10
+      <input type="number" id="numeroUsuario" />
+    </p>
+    <p id="mensaje"></p>
+    <button onclick="convertirALetras()">Convertir a letras</button>
+
+    <script>
+      function convertirALetras() {
+        let numero = parseInt(document.getElementById("numeroUsuario").value);
+        console.log = ("Numero introducido", numero);
+        let mensaje = " ";
+
+        switch (numero) {
+          case 1:
+            mensaje = "UNO";
+            break;
+          case 2:
+            mensaje = "DOS";
+            break;
+          case 3:
+            mensaje = "TRES";
+            break;
+          case 4:
+            mensaje = "CUATRO";
+            break;
+          case 5:
+            mensaje = "CINCO";
+            break;
+          case 6:
+            mensaje = "SEIS";
+            break;
+          case 7:
+            mensaje = "SIETE";
+            break;
+          case 8:
+            mensaje = "OCHO";
+            break;
+          case 9:
+            mensaje = "NUEVE";
+            break;
+          case 10:
+            mensaje = "DIEZ";
+            break;
+          default:
+            mensaje =
+              "Ha introducido un número incorrecto. Recuerde que tiene que poner un número entre 1 y 10";
+            document.getElementById("mensaje").innerHTML = mensaje;
+        }
+        document.getElementById("mensaje").innerHTML = mensaje;
+      }
+    </script>
+  </body>
+</html>

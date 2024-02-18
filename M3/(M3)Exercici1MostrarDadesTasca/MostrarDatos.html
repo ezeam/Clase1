@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>(M3) Exercici 1. Mostrar dades</title>
+</head>
+<body>
+  <p id="mensaje"></p>
+  <script>
+      let nombre = "";
+      let apellido = "";
+      let edad = "";
+      let mensaje = "";
+
+      //Solicitar datos mediante prompt:
+      nombre = prompt("¿Cúal es tu nombre?"); 
+      apellido = prompt ("¿Cúal es tu apellido?");
+      edad = prompt ("¿Cuántos años tienes?");
+
+      //Mostrar datos por consola:
+      console.log('nombre', nombre, "apellido", apellido, "edad", edad);
+
+      //Mostrar datos con un popup (alert):
+      mensaje = 'Hola usuario. Te llamas ' + nombre + ' ' + apellido + ' y tienes ' +edad + ' años.';
+      alert(mensaje);
+
+      //Mostrar datos con getElementById():
+      document.getElementById('mensaje').innerHTML = mensaje;    
+  </script>
+</body>
+</html>

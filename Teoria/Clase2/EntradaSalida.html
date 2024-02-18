@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrada y Salida de Datos</title>
+</head>
+<body>
+  <h1>Datos del Usuario</h1>
+  <p>Usuario: <input type="text" id="usuario"></p> 
+  <p>Edad: <input type="number" id="edad"></p> 
+  <hr>
+<button onclick="confirmarUsuario()">Confirmar datos</button>
+<p id="mensaje"></p>
+<script>
+  function confirmarUsuario(){
+    
+    //VARIABLES
+    let nombreUsuario = document.getElementById("usuario").value;
+    //Usamos value para leer de los inputs
+    let edadUsuario = parseInt (document.getElementById("edad").value);
+    //parsint me permite combertir un valor numérico del documento HTML en un número entero en JS. Si no se converte, lo asume como texto y no puedes operar con él 
+   let mensaje ='';
+   let datosCorrectos = '';
+   let confirmado = false;
+
+   //OPERACIONES
+   mensaje = 'Hola usuario. Te llamas ' + nombreUsuario + ' y tienes ' +edadUsuario + ' años.';
+   console.log('mensaje', mensaje);
+   document.getElementById('mensaje').innerHTML = mensaje;
+   alert(mensaje);
+   datosCorrectos = prompt("¿Están estos datos correctos? (Si/No)", "Si"); //Muestra un cuadro de diálogo con la preguntay guarda la respuesta en la variable indicada
+ console.log("datosCorrectos", datosCorrectos);
+
+ confirmado = confirm("¿Guardar lo valores en la base de datos?");
+ console.log("confirmado", confirmado);
+ }
+</script>
+</body>
+</html>

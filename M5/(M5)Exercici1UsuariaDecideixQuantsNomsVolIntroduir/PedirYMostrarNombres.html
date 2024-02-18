@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>(M5) Exercici 1. L'usuari/ària decideix quants noms vol introduir.</title>
+</head>
+<body>
+    <details>
+      <h3>L'usuari/ària decideix quants noms vol introduir</h3>
+      <p>Crea un programa que sol·liciti a l'usuari/ària quants noms desitja introduir.</p>
+      <p>Una vegada tenim aquest número, demanarem a l'usuari/ària tants noms de persona com ha dit prèviament i els emmagatzemarem en un Array.</p>
+      <p>Després, mostrarem per pantalla només els noms que comencen per la lletra “A”.</p>
+      <hr>
+    </details>
+
+    <p>¿Cuántos numbres desea introducir? <input id = "numeroNombres" type = "number"></p>
+    <button onclick="insertarNombres()">Insertar nombres</button>
+
+    <script>
+      function insertarNombres(){
+        let numNombres = parseInt(document.getElementById("numeroNombres").value);
+        console.log("Número de nombres", numNombres);
+        const arrayNombres = [];
+        let i = 0;
+        let nombre = " ";
+        const nombresPorA = [];
+
+        for (i = 1; i<= numNombres; i++){
+          nombre = prompt("Introduzca un nombre: ");
+          arrayNombres.push(nombre);
+          console.log("Posición / Nombre", i, nombre);
+
+          if (nombre.charAt(0).toUpperCase() == "A"){ //nombre.charAt(0).toUpperCase == "A"
+            nombresPorA.push(nombre);
+            console.log("Posición / Nombre", i, nombresPorA[i]);
+          }
+        }
+        console.log('nombresPorA ===>', nombresPorA)
+        if (nombresPorA.length == 0){
+          alert ("Lo lamentamos pero ninguno de los nombres indicados empieza por la letra A");
+        }
+        else {
+        alert(nombresPorA, ", ");
+        }
+      }
+    </script>
+  
+</body>
+</html>

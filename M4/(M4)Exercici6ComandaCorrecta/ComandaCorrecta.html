@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>(M4) Exercici 6. Comanda correcta?</title>
+  </head>
+  <body>
+    <details>
+      <sumary>Enunciado</sumary>
+      <p>
+        Crea un programa per a un restaurant on tenen tres plats (carn, pasta
+        "amb gluten" i risotto "amb lactosa").
+      </p>
+      <p>
+        El programa ha de demanar el plat que vol l'usuari/ària, però també ha
+        de demanar si aquest/a té cap preferència o intolerància (vegà,
+        intolerància al gluten o intolerància a la lactosa).
+      </p>
+      <p>
+        Si la persona demana un plat "que pot menjar" mostrarem per consola el
+        missatge "perfecte, comanda correcta", si no, es mostrarà el missatge
+        "vostè no pot menjar aquest plat".
+      </p>
+    </details>
+    <h1>Verificar comanda</h1>
+    <p>
+      <label for="plato">Seleccione el plato que desea: </label>
+      <select id="plato">
+        <option value="1">Carne</option>
+        <option value="2">Pasta con gluten</option>
+        <option value="3" selected >Risoto con lactosa</option> <!--Selected es para marcar por defecto-->
+      </select>
+    </p>
+    <h4>Intolerancias:</h4>
+    <p>
+      <label for="vegano">Vegano</label>
+      <input id="vegano" type="checkbox" />
+    </p>
+    <p>
+      <label for="gluten">Intolerancia al gluten</label>
+      <input id="gluten" type="checkbox" checked />
+      <!--Checked es para marcar por defecto-->
+    </p>
+    <p>
+      <label for="lactosa">Inteolerancia a la lactosa</label>
+      <input id="lactosa" type="checkbox" />
+    </p>
+    <button onclick="verificar()">Verificar Menú</button>
+    <h3 id="resultado"></h3>
+
+    <script>
+      function verificar(){
+        console.clear();
+        let platoSeleccionado = parseInt(document.getElementById("plato").value);
+        console.log ("Plato seleccionado: ", platoSeleccionado);
+        let esVegano = document.getElementById("vegano").checked;
+        console.log ("Es vegano?", esVegano);
+        let esGluten = document.getElementById("gluten").checked;
+        console.log ("Alergico al gluten?", esGluten);
+        let esLactosa = document.getElementById("lactosa").checked;
+        console.log ("Alergico a la lactosa?", esLactosa);
+
+        if(platoSeleccionado == 1 && esVegano == true){
+          console.log('platoSeleccionado => ', platoSeleccionado , "esVegaho", esVegano)
+          document.getElementById("resultado").innerHTML = "PLATO INCORRECTO";
+        }
+        else if (platoSeleccionado == 2 && esGluten == true){
+          document.getElementById("resultado").innerHTML = "PLATO INCORRECTO";
+        }
+        else if (platoSeleccionado == 3 && esLactosa == true){
+          document.getElementById("resultado").innerHTML = "PLATO INCORRECTO";
+        }
+        else {
+            document.getElementById("resultado").innerHTML = "PLATO CORRECTO";
+          }
+
+    };
+        
+    </script>
+  </body>
+</html>

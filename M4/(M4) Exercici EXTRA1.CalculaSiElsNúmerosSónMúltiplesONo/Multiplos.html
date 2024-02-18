@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>(M4) Exercici EXTRA 1. Calcula si els números són múltiples o no.</title>
+</head>
+<body>
+  <details>
+    <h3>Calcula si els números són múltiples o no</h3>
+    <p>Fes un programa que pregunti a l'usuari/ària dos nombres enters al qual anomenaràs dividend i divisor respectivament.
+      El divisor haurà d'estar comprès entre 2 i 7.    
+      En cas contrari, el programa haurà de mostrar un missatge d'error.     
+      Si el divisor és correcte (2-7) mostra en pantalla si el dividend és múltiple del divisor, o no.  
+    </p>
+    <h3>Objectius:</h3>
+    <ol>     
+     <li>Practicar l'ús d'estructures condicionals.</li> 
+      <li>Practicar els operadors per indicar quines són les condicions que s'han de complir per executar el bloc de codi.</li>
+      <li>Millora l'expressivitat del teu codi buscant la llegibilitat i aplicant bones pràctiques.</li>
+    </ol>
+  </details>
+  <h1 style = "color:blue">¿SON MÚLTIPLOS?</h1>
+  <p>Introduzca el dividendo <input id = "dividendo" type = "number"</p>
+  <p>Introduzca el divisor <input id = "divisor" type = "number"</p>
+  <button onclick="esMultiplo()">¿Son múltiplos?</button>
+  <h4 style = "color:blue" id ="mensaje"></h4>
+
+  <script>
+    function esMultiplo(){
+      let dividendo = parseInt(document.getElementById("dividendo").value);
+      console.log ("Dividendo es=>", dividendo);
+      let divisor = parseInt(document.getElementById("divisor").value);
+      console.log ("Divisor es=>", divisor);
+      let calculoModulo = dividendo % divisor;
+      console.log ("Modulo es=>", calculoModulo);
+
+      if(divisor>=2 && divisor <=7){
+        if(calculoModulo == 0){
+          document.getElementById("mensaje").innerHTML = "SON MÚLTIPLOS!!"
+        }
+        else {
+          document.getElementById("mensaje").innerHTML = "No son múltiplos..."
+        }
+      }
+      else {
+        alert("ERROR. El divisor debe estar comprendido entre los números 2 y 7");
+      }
+    }
+  </script>
+  
+</body>
+</html>

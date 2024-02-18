@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>(M3) Exercici 2. Calculadora arcaica</title>
+</head>
+<body>
+  
+  <script>
+  
+    let num1 = prompt("Escriba un número entero: ");
+    let num2 = prompt("Escriba otro número entero: "); // esto entra STRINGS =>  "5" + "2" = 52 !== PARSEiNT("5") = 5 
+    let suma = parseInt(num1) + parseInt (num2);
+    let resta = parseInt(num1) - parseInt (num2);
+    let multiplicacion = parseInt(num1) * parseInt (num2);
+    let division = parseInt(num1) / parseInt (num2);
+
+    mensajeSuma = 'El resultat de la suma és: '+ suma;
+    alert(mensajeSuma);
+
+    mensajeResta = 'El resultat de la resta és: '+ resta;
+    alert(mensajeResta);
+
+    mensajeMulti = 'El resultat de la multiplicación és: '+ multiplicacion;
+    alert(mensajeMulti);
+
+    mensajeDiv = 'El resultat de la división és: '+ division;
+    alert(mensajeDiv);
+  
+
+  </script> 
+  
+</body>
+</html>

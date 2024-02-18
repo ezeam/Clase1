@@ -1,0 +1,67 @@
+<!--<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>(M3) Exercici 3. Mitjana de 3 notes</title>
+</head>
+<body>
+  <p id="mensaje"></p>
+  <script>
+  
+    let nota1 = prompt("Introduzca una nota del 1 al 10: ");
+    let nota2 = prompt("Introduzca una nota del 1 al 10: "); 
+    let nota3 = prompt("Introduzca una nota del 1 al 10: "); 
+    let notaMedia = (parseInt(nota1) + parseInt(nota2) + parseInt(nota3))/3;
+    
+    let mensajeFinal = 'La nota media es: '+ notaMedia;
+  
+    document.getElementById('mensaje').innerHTML = mensajeFinal; 
+
+  </script> 
+  
+</body>
+</html>
+
+CORRECCIÓN: es mejor hacerlo en HTML, no con prompt-->
+
+  <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>(M3) Exercici 3. Mitjana de 3 notes</title>
+</head>
+<body> 
+  <p>Nota 1: <input type="number" id="nota1"></p>
+  <p>Nota 2: <input type="number" id="nota2"></p>
+  <p>Nota 3: <input type="number" id="nota3"></p>
+  <button onclick="calcularMedia()">Confirmar envío notas</button>
+  <p id="mensaje"></p>
+  <script>
+  function calcularMedia(){
+    let nota1 = Number (document.getElementById("nota1").value); //Usamos Number para que nos coja los decimales. ParseInt nos cogerá solo la parte entera de lo que nos ponga el usuario 
+    let nota2 = Number (document.getElementById("nota2").value);
+    let nota3 = Number (document.getElementById("nota3").value);
+    let notaMedia = (nota1 + nota2 + nota3)/3;
+
+    mensaje = 'La nota media de las notas indicadas es: ' + notaMedia;
+    alert(mensaje);
+  }
+    
+  </script> 
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

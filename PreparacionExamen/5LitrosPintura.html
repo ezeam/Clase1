@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cálculo de litros necesarios</title>
+</head>
+<!--Escriu un programa JavaScript que calculi els litres de pintura necessaris per a pintar una paret rectangular.
+Un litre de pintura cobreix aproximadament, 12 m² en una sola mà.
+Crear una constant, Cobertura a Litros (recordar les convencions de noms) per a guardar la dada de cobertura de la pintura (12 m²).
+Hauràs de demanar a l'usuari/ària:
+L'alt i ample de la paret (multiplicant sabràs l'àrea de la mateixa).
+El nombre de mans a aplicar.
+Mostra en pantalla els litres de pintura a utilitzar.-->
+<body>
+  <h1>Cálculo de los litros de pintura necesarios</h1>
+  <p>¿Cuánto mide de ancho la pared? <input type = "number" id ="ancho"></p>
+  <p>¿Cuánto mide de largo la pared? <input type = "number" id ="largo"></p>
+  <p>¿Cuántas manos de pintura desea dar? <input type = "number" id ="manos"></p>
+  <button onclick="calcularLitros()">Calcular litros</button>
+  <p id = "mensaje">  </p>
+
+  <script>
+    function calcularLitros(){
+      const litrosXmetro = 12;
+      let ancho = document.getElementById("ancho").value;
+      let anchoPars = parseInt (ancho);
+
+      let largo = document.getElementById("largo").value;
+      let largoPars = parseInt (ancho);
+
+      let manos = document.getElementById("manos").value;
+      let manosPars = parseInt (manos);
+          
+      let area = anchoPars * largoPars;
+      let litrosTotales = (area / litrosXmetro) * manosPars;
+
+      let mensaje = document.getElementById("mensaje").innerHTML = `Va a necesitar ${litrosTotales} litros de pintura`;
+    }
+  </script>
+  
+</body>
+</html>

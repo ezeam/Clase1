@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>(M4) Exercici 1. Nombres enters</title>
+  <!--Crea un programa que sol·liciti a l'usuari/ària que 
+    introdueixi dos nombres enters per teclat i mostri per 
+    pantalla el major dels dos.-->
+</head>
+<body>
+  <p>Introduzca un número entero: <input type="number" id="numero1"></p>
+  <p>Introduzca otro número entero: <input type="number" id="numero2"></p>
+
+  <button onclick="CompararCualEsMayor()">Cúal es mayor de los dos?</button>
+  
+  <script>
+  
+    function CompararCualEsMayor(){
+      let numero1 = parseInt(document.getElementById("numero1").value);
+      console.log("Numero 1 es: ", numero1);
+      let numero2 = parseInt (document.getElementById("numero2").value);
+
+      if(numero1 > numero2){
+        mensaje = "El número " + numero1 + " es mayor al número " + numero2;
+        alert(mensaje);
+      }
+
+        else if (numero1 < numero2){
+          mensaje = "El número " + numero1 + " es menor al número " + numero2;
+          alert(mensaje);
+        }
+        else{
+          mensaje = "El número " + numero1 + " y el número " + numero2 + "son iguales";
+          alert(mensaje);
+        }
+      
+    }
+
+  </script>
+</body>
+</html>

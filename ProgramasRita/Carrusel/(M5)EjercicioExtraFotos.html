@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Carrusel</title>
+    <link href="./css/estilos.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="container">
+        <h1>CARRUSEL DE IMAGENES</h1>
+        <p><img id="imagen"></p>
+        <p> <button id="retroceder" onclick="retrocede()">Retroceder</button>
+            <span id="nombreImagen"></span>
+            <button id="avanzar" onclick="avanza()">Avanzar</button>
+        </p>
+    </div>
+
+    <script>
+        // Variables. Al estar fuera de las funciones son variables globales
+        //guarda la ruta de las imágenes, en este caso una subcarpeta llamada img
+        const RUTA = './img/';
+        //array de imagenes. Indicar acá todas las imágenes que se quieran mostrar
+        const imagenes = [
+            'knightly.jpg', //0
+            'portman.jpg',     //1
+            'reves.jpg',   //2
+        ];
+		let posicion = 0;
+		console.log("Posicion: ", posicion);
+		//a continuación las funciones
+
+        function mostrarImagen(){   
+            let imagen = RUTA + imagenes[posicion];
+            document.getElementById("imagen").src = imagen;
+            document.getElementById("nombreImagen").innerHTML = imagen;
+        }
+
+        mostrarImagen();
+
+        function avanza(){
+            posicion++;
+            console.log("Posicion: ", posicion);
+            if (posicion>=imagenes.length){
+                alert ("Es la última imagen");
+                posicion--;
+                console.log("Posicion: ", posicion);
+            }
+            mostrarImagen();
+        }
+        
+        function retrocede(){
+            posicion--; // era 0 ahora es MENOS - 1
+            console.log("Posicion: ", posicion);
+            if (posicion == -1){ // SI LO IGUALAMOS A 0 NO ENTRA XQ YA ES -1
+                console.log('   ENTRAS?¿')
+                alert ("Es la primera imagen");
+                posicion++;
+                console.log("Posicion: ", posicion);
+            }
+            mostrarImagen();
+
+        }
+
+
+    </script>
+</body>
+
+</html>

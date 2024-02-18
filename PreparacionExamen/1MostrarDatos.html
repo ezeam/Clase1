@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mostrar datos</title>
+</head>
+<!--Fer un programa que li demani a l’usuari/ària mitjançant el prompt aquestes dades:
+Nom.
+Cognom.
+Edat.
+Un cop l’usuari/ària hagi acabat d’introduir les dades, aquestes s’han de mostrar:
+Per consola.
+Amb un popup (alert).
+Mitjançant getElementById().-->
+<body>
+  <h1>MOSTRAR DATOS POR PANTALLA:</h1>
+  <p id="mensaje"></p>
+  <script>
+    let nombre = prompt ("¿Cual es su nombre?");
+    console.log("NOMBRE: ", nombre);
+
+    let apellido = prompt ("¿Cual es su apellido?");
+    console.log("APELLIDO: ", apellido);
+
+    let edad = prompt(("¿Cuántos años tiene?"));
+    console.log("EDAD: ", edad);
+
+    let mensaje = "Su nombre es: " + nombre + ", su apellido es: " + apellido + " y su edad es: " + parseInt (edad);
+    alert (mensaje);
+    
+    let mensaje2 = `Su nombre es ${nombre}, su apellido es ${apellido} y su edad es ${edad}`;
+    document.getElementById("mensaje").innerHTML = mensaje2;
+  </script>
+  
+</body>
+</html>

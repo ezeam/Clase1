@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Identificadores</title>
+</head>
+<body>
+  <p id="primer_nombre"></p>
+  <p id="calculo"></p>
+  <script>
+    //VARIABLES
+    "use strict" //No permite usar unas variable que no se haya definido previamente. Sirve para evitar errores en el momento de escribir ya que js no detecta ese tipo de fallos
+    let primerNombre = 'Paco'; //Se pueden usar comillas dobles o simples
+    console.log("primerNombre", primerNombre, typeof(primerNombre)); //Es un chivato, nos muestra por consola lo que le pidamos
+    let apellido = "D'Onofrio";
+    console.log("apellido", apellido, typeof(apellido));
+    let edad = 50;
+    console.log("edad", edad, typeof(edad));
+    let cita = "'Hakuna matata'Disney"; //Puedes utilizar ambras comillas, simples o singulares
+    console.log("cita", cita, typeof(cita));
+    let sueldo = 1950.20; //Los decimales se indican con punto
+    console.log("sueldo", sueldo, typeof(sueldo));
+    let tieneVehiculo = true; //True para verdadero, false para indicar falso. Es un booleano
+    console.log("tieneVehiculo", tieneVehiculo, typeof(tieneVehiculo));
+    let segundoNombre = ""; //Declaramos sin valor, está vacio. Se podria hacer tambien: let segundoNombre; pero no es tan correcto
+    console.log("segundoNombre", segundoNombre, typeof(segundoNombre));
+    primerNombre = "Francisco"; //Estoy cambiando el valor de esta variable que ya tenia un valor 
+    console.info("Cambio el nombre de la variable primerNombre");
+    console.log("primerNombre", primerNombre, typeof(primerNombre));
+    
+    //OPERACIONES
+    document.getElementById("primer_nombre").innerHTML = primerNombre; //Esta es la instrucción para que se vea en la página. 
+    document.getElementById("calculo").innerHTML = primerNombre + " dentro de un año tendrás " + (edad + 1) + "años";
+    console.log("Expresion para mostrar 2 al cubo: ", 2**3);
+    console.log("Expresion para mostrar el resto de 7/2 (1):" ,7%2);
+    
+  </script>
+  
+</body>
+</html>
