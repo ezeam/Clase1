@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>(M4) Exercici 3. Les paraules més boniques del diccionari.</title>
+  </head>
+  <body>
+    <h4>
+      Els estudis lingüístics moderns diuen que les paraules més boniques del
+      diccionari són aquelles que contenen 9 <br />
+      lletres i comencen per la lletra 'H', o bé, contenen 5 lletres i comencen
+      per la lletra 'P'.<br />
+      Fes un programa que demani una paraula i determini si és bonica o no
+      (segons el patró explicat prèviament).<br />
+      El mètode charAt() segur que et pot ajudar en aquest exercici.
+    </h4>
+
+    <p>Escriba una palabra: <input type="text" id="palabraIntroducida" /></p>
+    <button onclick="esBonita()">¿Es bonita?</button>
+
+    <p id="resultado"></p>
+
+    <script>
+      function esBonita() {
+        let palabra = document.getElementById("palabraIntroducida").value;
+        console.log("Palabra: ", palabra);
+
+    /*    if (
+          (palabra.length == 9 && palabra.charAt(0).toUpperCase() == "H") ||
+          (palabra.length == 5 && palabra.charAt(0).toUpperCase() == "P")
+        ) {
+          document.getElementById("resultado").innerHTML = "Es bonita";
+        } else {
+          document.getElementById("resultado").innerHTML = "Es fea";
+        }*/
+
+        switch (palabra.length) {
+          case 9:
+            if (palabra.charAt(0).toUpperCase() == "H") {
+              document.getElementById("resultado").innerHTML = "Es bonita";
+            }
+            break;
+          case 5:
+            if (palabra.charAt(0).toUpperCase() == "P") {
+              document.getElementById("resultado").innerHTML = "Es bonita";
+            }
+            break;
+          default:
+          document.getElementById("resultado").innerHTML = "Es fea"; 
+        }
+      }
+    </script>
+  </body>
+</html>
