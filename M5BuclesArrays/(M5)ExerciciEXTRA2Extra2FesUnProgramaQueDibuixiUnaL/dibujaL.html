@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>(M5) Exercici EXTRA 2. Extra2 Fes un programa que dibuixi una L.</title>
+</head>
+<body>
+  <h2>Dibuixa una L</h2>
+  <p>Realitza un programa que pinti la lletra L per pantalla feta amb asteriscs.<br>
+    El programa demanarà l'altura.<br>    
+    El pal horitzontal de la L tindrà una longitud de la meitat (divisió entera entre 2) de l'altura més un.</p>
+  <hr />
+
+  <p>Introduzca la altura de su L <input id="altura" type="number"></p>
+  <button onclick="main()">Dibuja</button>
+  <p id="resultado"></p>
+
+  <script>
+    function main(){
+      let altura = parseInt(document.getElementById("altura").value);
+      console.log("Altura: ", altura);
+      let anchura = parseInt((altura/2)+1);
+      console.log("Anchura: ", anchura);
+      let i = 0; 
+      let j = 0;
+      let resultado = "";
+
+      for(i = 1; i <altura; i++){
+        resultado += "*" + "<br>";
+        if(i == altura-1){
+          for(j = 0; j < anchura; j++){
+            resultado += "* ";
+          }          
+        }
+      }
+      document.getElementById("resultado").innerHTML = resultado;
+    }
+  </script>
+  
+</body>
+</html>

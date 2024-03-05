@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>(M7.3.) Exercici 5. Paraules amb la lletra A</title>
+</head>
+<body>
+  <h2>Paraules amb la lletra</h2>
+  <p>Donat un arraylist de paraules introduïdes per l’usuari/ària.
+    Digues el nombre de paraules que contenen la lletra ‘a’ i mostra-les per pantalla.</p>
+  <hr />
+  
+  <button onclick="main()">Insertar</button>
+  <p id="resultado"></p>
+
+  <script>
+    function main(){
+      let palabras = [];
+      let i = 0;
+      let palabra = "";
+      let palabrasA = [];
+      let numeroPalabrasA = 0;
+
+      for(i = 0; i < 5; i++){
+        palabra = prompt("Escriba una palabra");
+        palabras.push(palabra); 
+      }
+     // console.table(palabras);
+
+      palabrasA = contieneA(palabras);
+      console.table(palabrasA);
+      numeroPalabrasA = palabrasA.length;
+
+      document.getElementById("resultado").innerHTML =`Hay ${numeroPalabrasA} palabras con A:  ${palabrasA.join(", " )}`;  
+
+    }
+    function contieneA(array){
+      let palabrasA = [];
+      let i = 0;
+      let j = 0;
+
+      for(i = 0; i < array.length; i++){        
+          if(array[i].includes("a", "A")){
+           palabrasA.push(array[i]);
+         }
+      
+      }      
+      return palabrasA;
+    }
+    
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>(M7.1.) Exercici 5. Nombres parells del 100 al 0</title>
+  </head>
+  <body>
+    <h2>Pares del 0 al 100</h2>
+    <p>
+      Mostra per pantalla els nombres parells compresos entre el 100 i el 0 en
+      ordre descendent.
+    </p>
+    <hr />
+    <p>Los número pares del 100 al 0 son:</p>
+    <button onclick="calcularPares()">Calcular números pares:</button>
+    <p id="resultado"></p>
+
+    <script>
+      function calcularPares() {
+        let arrayPares = [];
+        let i = 0;
+        for (i = 100; i >= 0; i -= 2) {
+          arrayPares.push(i);
+        }
+        console.table(arrayPares);
+        document.getElementById("resultado").innerHTML = arrayPares;
+        return arrayPares;
+      }
+    </script>
+  </body>
+</html>

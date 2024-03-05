@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>(M7.1.) Exercici 8. Canviar unitats.</title>
+  </head>
+  <body>
+    <h2>Canviar unitats</h2>
+    <p>
+      Crea un menú que permeti canviar d’unitats: Passar de metres a peus. De
+      peus a metres. De metres a iardes. De iardes a metres.
+    </p>
+    <hr />
+    <p>
+      Introduzca el valor que desea convertir <input id="num" type="number" />
+    </p>
+    <p>
+      <label for="cambio"
+        >Indique el cambio de unidad que desea realizar:
+      </label>
+      <select id="cambio">
+        <option value="1">De metros a pies</option>
+        <option value="2">De pies a metros</option>
+        <option value="3">De metros a yardas</option>
+        <option value="4">De yardas a metros</option>
+      </select>
+    </p>
+    <button onclick="main()">Convertir</button>
+    <p id="resultado"></p>
+
+    <script>
+      function main() {
+        let cambioSeleccionado = parseInt(
+          document.getElementById("cambio").value
+        );
+        console.log("Cambio seleccionado: ", cambioSeleccionado);
+        let num = parseInt(document.getElementById("num").value);
+        let resultado = " ";
+
+        switch (cambioSeleccionado) {
+          case 1:
+            resultado = num + " metros son " + metrosPies(num) + " pies";            
+            break;
+          case 2:
+            resultado = num + " pies son " + metrosPies(num) + " metros";
+            break;
+          case 3:
+            resultado = num + " metros son " + metrosPies(num) + " yardas";
+            break;
+          case 4:
+            resultado = num + " yardas son " + metrosPies(num) + " metros";
+            break;
+        }
+        document.getElementById("resultado").innerHTML = resultado;
+         
+      }
+      function metrosPies(n) {
+        let result = 0;
+        result = (n * 3.28084).toFixed(2);
+        console.log("Resultado: ", result);
+        return result;
+      }
+      function piesMetros(n) {
+        let result = 0;
+        result = (n * 0.3048).toFixed(2);
+        console.log("Resultado: ", result);
+        return result;
+      }
+      function metrosYardas(n) {
+        let result = 0;
+        result = (n * 1.09361).toFixed(2);
+        console.log("Resultado: ", result);
+        return result;
+      }
+      function yardasMetros(n) {
+        let result = 0;
+        result = (n * 0.9144).toFixed(2);
+        console.log("Resultado: ", result);
+        return result;
+      }
+    </script>
+  </body>
+</html>

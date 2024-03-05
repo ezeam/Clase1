@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>(M5) Exercici 4. Titelles.</title>
+  </head>
+  <body>
+    <details>
+      <h1 strong>(M5) Exercici 4. Titelles.</h1>
+      <p>
+        Fes un programa que demani quants nens i nenes volem introduir per fer
+        una reserva d'una actuació de titelles. Un cop sabem el nombre de nens i
+        nenes has de demanar les seves edats. Les edats només poden estar
+        compreses entre 5 i 12 anys, per tant, si en demanar una edat,
+        l'usuari/ària introdueix una que no està en aquest rang, li has de
+        tornar a demanar (fins que introdueixi una correcta). Finalment, has de
+        mostrar per pantalla la mitjana d'edats dels nens.
+      </p>
+      <hr />
+    </details>
+
+    <p>Introduzca el número de niños que acudirán a la actuación <input id="num" type="number"></p>
+    <button onclick="main()">Introducir</button>
+    <p id="resultado"></p>
+
+    <script>
+      function main(){
+        let num = parseInt(document.getElementById("num").value);
+        let edad = 0;
+        let mediaEdades = 0;
+        let edadesCorrectas = [];
+        let sumaEdades = 0;
+
+        for(let i = 0; i < num; i++){
+          do{
+            edad = parseInt(prompt("Introduzca la edad del niño")); 
+            if(edad >= 5 && edad <= 12){
+              edadesCorrectas.push(edad);
+            }                       
+          }
+          while(edad < 5 || edad > 12);
+        }
+        for(let valor of edadesCorrectas){          
+          sumaEdades += valor;           
+        }
+        mediaEdades = sumaEdades / num;
+        document.getElementById("resultado").innerHTML = `La media de edades introducida es ${mediaEdades}`;
+
+      }
+    </script>
+  
+</body>
+</html>

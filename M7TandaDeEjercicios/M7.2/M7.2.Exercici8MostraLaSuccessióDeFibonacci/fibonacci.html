@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>(M7.2.) Exercici 8. Mostra la successió de Fibonacci.</title>
+</head>
+<body>
+  <h2>Pide números hasta dar con uno primo</h2>
+    <p>L’usuari/ària introdueix un nombre per teclat i el programa crida a un mètode<br> 
+      que ha de mostrar la successió de Fibonacci.<br>
+      Exemple:<br>
+      Si l’usuari/ària introdueix el 10, el resultat ha de ser:   <br>   
+      0,1,1,2,3,5,8,13,21,34
+      </p>
+
+    <p>Introduzca un número: <input id="num" type="number"></p>
+    <button onclick="main()">Fibonacci</button>
+    <p id="resultado"></p>
+
+    <script>
+      function main(){
+        let num = parseInt(document.getElementById("num").value);
+
+        document.getElementById("resultado").innerHTML = calcularFibonacci(num);        
+      }
+
+      function calcularFibonacci(n){
+        let a = 0;
+        let b = 1;
+        let c = 0;
+        let fibonacci = [0,1];
+        
+        for (i = 2; i < n; i++){
+          c = a + b;
+          a = b;
+          b = c;
+          fibonacci.push(c);
+        }
+        return fibonacci;
+      }
+    </script>
+  
+</body>
+</html>

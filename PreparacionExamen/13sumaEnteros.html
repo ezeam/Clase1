@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>(M5) Exercici 2. Suma dels valors entre dos nombres</title>
+</head>
+<body>
+  <details>
+    <h3>Suma dels valors entre dos nombres</h3>
+    <p>El programa demana dos nombres enters i llavors calcula la suma dels valors compresos entre els dos números, inclosos. </p>
+    <p></p>Exemple: 4 i 6  --> resultat = 4 + 5 + 6 = 15</p>
+    <hr>
+  </details>
+  <p>Introduzca un número <input id="num1" type="number"></p>
+  <p>Introduzca un número <input id="num2" type="number"></p>
+  <button onclick="main()">Calcular</button>
+  <p id="resultado"></p>
+
+  <script>
+    function main(){
+      let num1 = parseInt(document.getElementById("num1").value);
+      let num2 = parseInt(document.getElementById("num2").value);
+      let suma = 0;
+      let aux = 0; 
+
+      if(num2 < num1){
+        aux = num1; 
+        num1 = num2; 
+        num2 = aux;
+      }
+      for(let i = num1; i <= num2; i++){
+        suma += i;
+      }
+      document.getElementById("resultado").innerHTML = suma;
+    }
+  </script>
+  
+</body>
+</html>

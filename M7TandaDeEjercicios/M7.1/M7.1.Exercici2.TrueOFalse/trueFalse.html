@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>(M7.1.) Exercici 2. True o False</title>
+</head>
+<body>
+  <h2>¿Verdadero o falso?</h2>
+    <p>Crea un programa que determini si un nombre és múltiple d’un altre. Per fer-ho 
+      crea una funció que ha de rebre els dos nombres per paràmetre i ha de retornar true,
+      si el primer nombre introduït és múltiple del segon o false, si no ho és.</p>
+    <hr>
+
+    <p>Introduzca un número <input id="num1" type="number"></p>
+    <p>Introduzca otro número <input id="num2" type="number"></p>
+    <button onclick="enviarNumeros()">¿Son múltiplos?</button>
+    <p id="resultado"></p>
+
+    <script>
+      function enviarNumeros(){
+        let num1 = parseInt(document.getElementById("num1").value);
+        console.log("Primer número: ", num1);
+        let num2 = parseInt(document.getElementById("num2").value);
+        console.log("Segundo número: ", num2);
+
+        if(sonMultiplos(num1, num2) == true){
+          document.getElementById("resultado").innerHTML = `El número ${num1} es múltiplo del número ${num2}`;
+        }
+        else {
+          document.getElementById("resultado").innerHTML = `El número ${num1} NO es múltiplo del número ${num2}`;
+        }
+      }
+
+      function sonMultiplos(n1, n2){
+        let result = false;
+        if (n1 % n2 == 0){
+          result = true;
+        }
+        return (result);
+      }
+    </script>
+  
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M6-2L'usuari/ària decideix quants noms vol introduir</title>
+</head>
+<body>
+  <h2>¿Cuántos nombres desea introducir?</h2>
+    <p>Crea un programa que sol·liciti a l'usuari/ària quants noms desitja 
+      introduir.
+      Una vegada tenim aquest número, demanarem a l'usuari/ària tants noms 
+      de persona com ha dit prèviament i els emmagatzemarem en un Array.
+      Després, mostrarem per pantalla només els noms que comencen per la 
+      lletra “A”..</p>
+
+      <p>Introducza el número de nombres que introducirá: <input id="numeroUsuario" type="number"></p>
+      <button onclick="main()">Enviar</button>
+      <p id="resultado"></p>
+
+      <script>
+        function main(){
+          let numero = parseInt(document.getElementById("numeroUsuario").value);
+          console.warn("Número de nombres: ", numero);
+          let arrayNombres = [];
+          let arrayEmpiezaPorA = [];
+          
+          
+          arrayNombres = solicitarNombres(numero);
+          console.table(arrayNombres);
+
+          arrayEmpiezaPorA = empiezaPorA(arrayNombres);
+          console.table(arrayNombres);
+          
+
+          if(arrayEmpiezaPorA.length == 0){
+            document.getElementById("resultado").innerHTML = "Lo lamentamos, no ha introducido ningú nombre que empiece por A";
+          }
+          else{
+          document.getElementById("resultado").innerHTML = arrayEmpiezaPorA;
+          }
+
+        }
+        function solicitarNombres(n){
+          let nombre = "";
+          let i = 0;
+          let arrayNombres = [];
+          for (i = 0; i < n; i++){
+            nombre = prompt("Escriba un nombre: ");
+            arrayNombres.push(nombre);            
+          }
+          return(arrayNombres);
+        }
+        function empiezaPorA(a){
+          let nombresPorA = [];
+          let i = 0;
+          for(i = 0; i< a.length; i++){
+            console.log(nombresPorA[i]);
+            if (a[i].charAt(0).toUpperCase() == "A"){ //nombre.charAt(0).toUpperCase == "A"
+                 nombresPorA.push(a[i]);             
+            }
+          }
+          return nombresPorA;
+          }
+        
+
+      </script>
+  
+</body>
+</html>

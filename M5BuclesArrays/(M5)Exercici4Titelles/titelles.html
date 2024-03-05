@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>(M5) Exercici 4. Titelles.</title>
+  </head>
+  <body>
+    <details>
+      <h1 strong>(M5) Exercici 4. Titelles.</h1>
+      <p>
+        Fes un programa que demani quants nens i nenes volem introduir per fer
+        una reserva d'una actuació de titelles. Un cop sabem el nombre de nens i
+        nenes has de demanar les seves edats. Les edats només poden estar
+        compreses entre 5 i 12 anys, per tant, si en demanar una edat,
+        l'usuari/ària introdueix una que no està en aquest rang, li has de
+        tornar a demanar (fins que introdueixi una correcta). Finalment, has de
+        mostrar per pantalla la mitjana d'edats dels nens.
+      </p>
+      <hr />
+    </details>
+    <br />
+    <br />
+    <br />
+
+    <p>
+      Indique cuántos niños acudirán a la actuación:
+      <input id="numeroNinios" type="number" />
+    </p>
+    <button onclick="introducir()">Introducir</button>
+
+    <script>
+      function introducir(){
+        let numNinios = parseInt(document.getElementById("numeroNinios").value);
+        console.log("Número de niños: ", numNinios);
+
+        const edades = [];
+        let edad = 0;
+        let i = 0;
+        console.log("Inicializamos i a: ", i);
+        let mediaAnios = 0;
+        let sumaEdades = 0;
+        let media = 0;
+
+        for(i = 1 ; i <= numNinios ; i++){
+          console.log("I vale: : ", i);
+          console.log("numNinios vale: : ", numNinios);
+
+            do{
+              edad = Number(prompt("Introduzca la edad del niño " + i + " (entre 5 y 12): " , ""));
+            }
+            while(edad<5 || edad>12);
+            
+            console.log("I vale: : ", i);
+            edades.push(edad); 
+            sumaEdades = sumaEdades + edad;   
+            console.log("numNinios vale: : ", numNinios);
+            console.table(edades);
+          
+        }
+
+          media = sumaEdades / edades.length;
+          console.log("media: ", media);
+          alert("El promedio de edades es: " + media);
+
+      }
+    </script>
+  </body>
+</html>

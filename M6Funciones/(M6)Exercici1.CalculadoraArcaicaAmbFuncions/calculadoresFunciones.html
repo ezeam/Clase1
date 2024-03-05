@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>(M6) Exercici 1. Calculadora arcaica (amb funcions)</title>
+  </head>
+  <body>
+    <h1>CALCULADORA CON FUNCIONES:</h1>
+    <p>El programa le pedirá dos números y un operador:</p>
+    <p>Introduzca un número <input id="numero1" type="number" /></p>
+    <p>Introduzca un número <input id="numero2" type="number" /></p>
+    <p>
+      Introduzca el operador para calcular <input id="operador" type="text" />
+    </p>
+    <button onclick="calcular()">Calcular</button>
+    <p id="resultado"></p>
+
+    <script>
+      let result = 0;
+
+      function calcular() {
+        let num1 = parseInt(document.getElementById("numero1").value);
+        console.log("Primer número: ", num1);
+        let num2 = parseInt(document.getElementById("numero2").value);
+        console.log("Segundo número: ", num2);
+        let signo = document.getElementById("operador").value;
+
+        switch (signo) {
+          case "+":
+            console.log("Vas a sumar");
+            suma(num1, num2);
+            break;
+          case "-":
+            console.log("Vas a restar");
+            resta(num1, num2);
+            break;
+          case "*":
+            console.log("Vas a multiplicar");
+            multiplicacion(num1, num2);
+            break;
+          case "/":
+            console.log("Vas a dividir");
+            division(num1, num2);
+            break;
+          case "%":
+            console.log("Vas a calcular el resto");
+            modulo(num1, num2);
+            break;
+          default:
+          document.getElementById("resultado").innerHTML = "No se puede realizar la operación";
+        }
+        document.getElementById("resultado").innerHTML = result;
+        /* if (signo == "+") {
+          console.log("Vas a sumar");
+          suma(num1, num2);
+        } else if (signo == "-") {
+          console.log("Vas a restar");
+          resta(num1, num2);
+        } else if (signo == "*") {
+          console.log("Vas a multiplicar");
+          multiplicacion(num1, num2);
+        } else if (signo == "/") {
+          console.log("Vas a dividir");
+          division(num1, num2);
+        } else if (signo == "%") {
+          console.log("Vas a calcular el resto");
+          modulo(num1, num2);
+        } else {
+          document.getElementById("resultado").innerHTML = "ERROR";
+        }*/
+      }
+      function suma(n1, n2) {
+        result = n1 + n2;
+        console.log("Resultado: ", result);
+        return result;
+      }
+      function resta(n1, n2) {
+        result = n1 - n2;
+        console.log("Resultado: ", result);
+        return result;
+      }
+      function multiplicacion(n1, n2) {
+        result = n1 * n2;
+        console.log("Resultado: ", result);
+        return result;
+      }
+      function division(n1, n2) {
+          if(n2 == 0){
+          result = "Error, no se puede dividir entre 0";
+        }
+        else{
+        result = n1 / n2;
+        console.log("Resultado: ", result);
+        return result;
+        }
+      }
+      function modulo(n1, n2) {
+        if(n2 == 0){
+          result = "Error, no se puede dividir entre 0";
+        }
+        else{
+        result = n1 % n2;
+        console.log("Resultado: ", result);
+        return result;
+        }
+      }
+    </script>
+  </body>
+</html>

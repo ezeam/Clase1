@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>(M7.3.) Exercici 3. Indica si la frase és palíndrom.</title>
+</head>
+<body>
+  <h2>Indica si la frase és palíndrom</h2>
+  <p>L’usuari/ària ha d’introduir una frase i el programa ha de dir si la frase és un palíndrom</p>
+  <hr />
+
+  <p>Introduzca una frase: <input id="frase" type="text"></p>
+  <button onclick="main()">¿Es palíndromo?</button>
+  <p id="resultado"></p>
+
+  <script>
+    function main(){
+      let frase = document.getElementById("frase").value;
+      let fraseLimpia = "";
+      let fraseGirada = "";      
+
+      frase = frase.toLowerCase();
+      //console.log(frase);
+
+      fraseLimpia = limpiarString(frase);
+      console.log("Frase limpia: ", fraseLimpia);
+
+      fraseGirada = girarString(fraseLimpia);
+      console.log("Frase girada: ", fraseGirada);
+
+      if(stringIguales(fraseGirada, fraseLimpia)){
+        document.getElementById("resultado").innerHTML = "Genial! La frase es palíndromo!"
+      }
+      else{
+        document.getElementById("resultado").innerHTML = "La frase no es palíndromo"
+      }
+    }
+    function limpiarString(frase){
+      let fraseLimpia = "";
+      let palabraFinal = "";
+      let i = 0;
+
+      for(i = 0; i < frase.length; i++){
+        fraseLimpia = frase[i];
+       // console.log(fraseLimpia);
+        if(frase.includes("á", "à", "ä")){
+          fraseLimpia = "a";          
+        }
+        if (frase.includes("é", "è", "ë")){
+          fraseLimpia = "e";
+        }
+        if (frase.includes("í", "ì", "ï")){
+          fraseLimpia = "i";
+        }
+        if (frase.includes("ó", "ò", "ö")){
+          fraseLimpia = "o";
+        }
+        if (frase.includes("ú", "ù", "ü")){
+          fraseLimpia = "u";
+        }
+        if (frase.includes(" ", ".", ",", ";")){
+          fraseLimpia = "";
+        }  
+          palabraFinal += fraseLimpia;   
+      }
+      //console.log(palabraFinal);
+      return palabraFinal;
+    }
+
+    function girarString(frase){
+      let stringGirada = "";
+
+      for(let i = frase.length-1; i >= 0; i--){
+        stringGirada += frase[i];
+      }
+      return stringGirada;
+    }
+    function stringIguales(fraseGirada, fraseLimpia){
+      let sonIguales = false;
+      if(fraseLimpia == fraseGirada){
+        sonIguales = true;
+      }
+      return sonIguales; 
+    }
+    
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      (M5) Exercici EXTRA 1. Realitza el programa de fred-fred, calent-calent
+    </title>
+  </head>
+  <body>
+    <details>
+      <h1 strong>
+        (M5) Exercici EXTRA 1. Realitza el programa de fred-fred, calent-calent
+      </h1>
+      <p>
+        Realitzar un joc per endevinar un nombre aleatori N, entre 1 i 500. Si
+        la distància entre el nombre a endevinar i el de l'usuari/ària és de 50
+        o més, el programa haurà de dir: “Fred, fred: el teu número és més gran
+        “ o “Fred, fred: el teu número és més petit “ Si la distància entre el
+        nombre a endevinar i el de l'usuari/ària està entre 15 i 50, el programa
+        haurà de dir: “Tebi, Tebi: el teu número és més gran “ o “Tebi, Tebi: el
+        teu número és més petit “ I si la distància entre el nombre a endevinar
+        i el de l'usuari/ària i si la distància és menor a 15, el programa haurà
+        de dir: “Calent, calent: el teu número és més gran “ o “Calent, calent:
+        el teu número és més petit “ El procés acaba quan l'usuari/ària encerta.
+      </p>
+      <hr />
+    </details>
+
+    <h1>FRÍO CALIENTE</h1>
+    <h4>El juego consiste en adivinar un número entre el 1 y el 500:</h4>
+    <button onclick="main()">Prueba suerte</button>
+    <p id="resultado"></p>
+
+    <script>
+      function main() {
+        let numRandom = Math.floor(Math.random() * (500 - 1)) + 1;
+        console.log("Número random: ", numRandom);
+        let num = 0;
+        let distancia = 0;
+
+        do {
+          num = prompt("Introduzca un número");
+          console.log("Numero usuario", num);
+          distancia = num - numRandom;
+          console.log("Distancia", distancia);
+
+          if (num == numRandom) {
+            alert("¡ACERTASTE!");
+          } else if (distancia > 50) {
+            alert("Frío frío, tu número es demasiado alto");
+          } else if (distancia < -50) {
+            alert("Frío frío, tu número es demasiado bajo");
+          }
+          else if (distancia >= 15 && distancia < 50){
+            alert("Tibio tibio, tu número es demasiado alto");
+          }
+          else if (distancia <= -15 && distancia > -50){
+            alert("Tibio tibio, tu número es demasiado bajo");
+          }
+          else if (distancia < 15 && distancia > 0){
+            alert("Caliente caliente, tu número es demasiado alto");
+          }
+          else if (distancia > -15 && distancia < 0){
+            alert("Caliente caliente, tu número es demasiado bajo");
+          }
+        } while (num != numRandom);
+      }
+    </script>
+  </body>
+</html>

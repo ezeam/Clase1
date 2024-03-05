@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>(M7.2.) Exercici 4. Dibuixa una piràmide.</title>
+</head>
+<body>
+  <h2>Calcula el factorial d'un nombre</h2>
+    <p>Fes un programa que mostri el següent per pantalla:<br>
+      *<br>      
+      * *<br>      
+      * * *<br>      
+      * * * *<br>      
+      * * * * *<br>      
+      * * * * * *<br>      
+      * * * * *<br>      
+      * * * *<br>      
+      * * *<br>      
+      * *<br>      
+      *<br>      
+      La línia amb més “*” vindrà donada per un número que l’usuari/ària introduirà 
+      per consola.      
+      Condició: En tot el codi del programa només hi pot haver-hi dos *      
+      També, a poder ser, no utilitzis cap mètode com repeat() o substring() de la 
+      classe String.</p>
+    <hr>
+
+    <p>Introduzca un número para indicar el punto más alto de la pirámide <input id="numUsuario" type="number"></p>
+    <button onclick="main()">Crear pirámide</button>
+    <p id="resultado"></p>
+
+    <script>
+      function main(){
+        let numMax = parseInt(document.getElementById("numUsuario").value);
+        console.log("Numero máximo de asteriscos: ", numMax);
+
+        document.getElementById("resultado").innerHTML = pintarTriangulo(numMax) + pintarInvertido(numMax);
+      }
+      function pintarTriangulo(n){
+        let triangulo = "";
+        for (i = 1; i <= n; i++) {
+          for (j = 0; j < i; j++) {
+            triangulo += "*";
+          }
+          triangulo += "<br>";
+        }
+        return triangulo;
+      }
+      function pintarInvertido(n){
+        let triangulo = "";
+        for (i = 2; i <= n; i++) {
+          for (j = n; j >= i; j--) {
+            triangulo += "*";
+          }          
+          triangulo += "<br>";
+        }
+        return triangulo;
+      }
+
+      //para que no se duplique la línea central, se tendría que haber copiado las funciones
+      //tal cual y en el momento de pasar los parámetros a la función, pasarle el 
+      //numUsuario - 1. De esta manera te pintará una posición menos 
+    </script>
+</body>
+</html>

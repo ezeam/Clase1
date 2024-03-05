@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>(M7.3.) Exercici 2. Mostra un string al revés.</title>
+</head>
+<body>
+  <h2>Mostra un string al revés</h2>
+  <p>
+    En aquest programa l’usuari/ària ha d’introduir un string i, utilitzant un bucle for, el programa ha de mostrar l’string al revés.</p>
+  <hr />
+  
+  <p>Introduzca la palabra a la que le quiere dar la vuelta: <input id="palabra" type="text"></p>
+  <button onclick="main()">Girar</button>
+  <p id="resultado"></p>
+
+  <script>
+    function main(){
+      let palabra = document.getElementById("palabra").value;
+      console.log("Palabra introducida: ", palabra);
+      
+      document.getElementById("resultado").innerHTML = girarPalabra(palabra);
+
+    }
+
+    function girarPalabra(palabra){
+      let palabraGirada = "";
+
+      for(let i = palabra.length-1; i >= 0; i--){
+        palabraGirada += palabra[i];
+      }
+      return palabraGirada;
+    }
+  </script>
+</body>
+</html>

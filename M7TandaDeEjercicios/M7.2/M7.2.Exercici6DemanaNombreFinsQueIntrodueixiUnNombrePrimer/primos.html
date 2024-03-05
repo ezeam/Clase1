@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      (M7.2.) Exercici 6. Demana nombre fins que introdueixi un nombre primer.
+    </title>
+  </head>
+  <body>
+    <h2>Pide números hasta dar con uno primo</h2>
+    <p>
+      L’usuari/ària ha d’introduir números fins que introdueixi un nombre
+      primer. En el moment que l’usuari/ària introdueixi un nombre primer, el
+      programa ha de treure per pantalla el següent missatge: “Exacte, el número
+      “x” és primer!”
+    </p>
+
+    <button onclick="main()">Jugar</button>
+    <p id="resultado"></p>
+
+    <script>
+        function main() { 
+          let num = 0;
+
+          do{
+            num = prompt("Introduzca un número: ");
+            console.log("Número introducido: ", num);            
+          } while(num <= 1 || !esPrimo(num));
+
+          document.getElementById("resultado").innerHTML = `Exacto, el número ${num} es primo`;
+        }
+
+        function esPrimo(n){
+          let primo = true;
+          let i = 2; 
+            while (primo && i < n) {
+              if (n % i == 0) {
+                primo = false;
+                console.log(primo);
+              }
+            i++;
+            }     
+            return primo;
+          }       
+         
+        
+    </script>
+  </body>
+</html>

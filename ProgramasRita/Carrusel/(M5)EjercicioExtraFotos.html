@@ -44,7 +44,7 @@
             console.log("Posicion: ", posicion);
             if (posicion>=imagenes.length){
                 alert ("Es la última imagen");
-                posicion--;
+                posicion--; // posicion = 0 ==>De esta manera hacemos que el carrusel empiece de nuevo. Habría que quitar el alert
                 console.log("Posicion: ", posicion);
             }
             mostrarImagen();
@@ -56,7 +56,7 @@
             if (posicion == -1){ // SI LO IGUALAMOS A 0 NO ENTRA XQ YA ES -1
                 console.log('   ENTRAS?¿')
                 alert ("Es la primera imagen");
-                posicion++;
+                posicion++; // Si queres que cuando llegue al principio vuelva a la último ==> posicion = imagenes.length -1
                 console.log("Posicion: ", posicion);
             }
             mostrarImagen();

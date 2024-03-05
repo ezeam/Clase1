@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>(M7.3.) Exercici 1. Tasques</title>
+  </head>
+
+  <body>
+    <h2>Tasques</h2>
+    <p>
+      Crea un programa que tingui un menú:<br />
+      Afegir tasca, mostrar totes les tasques i eliminar tasca, a més de l’opció
+      de sortir de l’aplicació. <br />
+      D’aquesta manera tindrem un programa amb un llistat de tasques per fer.
+      Les tasques es podran afegir, mostrar i eliminar un cop fetes.<br />
+    </p>
+    <hr />
+
+    <p>
+      <label for="menu">Seleccione la acción que desea realizar: </label>
+      <select id="menu">
+        <option value="1">Añadir tarea</option>
+        <option value="2">Mostrar tareas</option>
+        <option value="3">Eliminar tarea</option>
+        <option value="4">Salir</option>
+      </select>
+    </p>
+    <button onclick="main()">Acceder</button>
+    <p id="resultado"></p>
+
+    <script>
+      let tareas = [];
+
+      function main() {
+        let seleccion = parseInt(document.getElementById("menu").value);
+        console.log("Seleccion: ", seleccion);
+        let index = 0;
+        let tarea = "";
+
+        switch (seleccion) {
+          case 1: //Añadir tarea
+            tarea = prompt("Qué tarea desea añadir? ");
+            index = searchTask(tarea);
+            if (index != -1) {
+              alert("Esta tarea ya está agregada");
+            } else {
+              addTask(tarea);
+            }
+            break;
+          case 2: //Mostrar tareas
+            document.getElementById("resultado").innerHTML =
+              tareas.join("<br>");
+            break;
+          case 3: //Elimiar tarea
+            index = searchTask(prompt("Qué tarea desea eliminar? "));
+            if (index == -1) {
+              alert("La tarea no existe");
+            } else {
+              deleteTask(index);
+            }
+            break;
+          case 4: //Salir
+            alert("Va a salir de la aplicación");
+            window.close();
+            break;
+        }
+        console.table(tareas);
+      }
+
+      function addTask(tarea) {
+        tareas.push(tarea);
+        return tarea;
+      }
+
+      function searchTask(tarea) {
+        let encontrada = false;
+        let posicionTarea = -1; // -1 es el resultado de los software cuando no encuentran algo.
+        let i = 0;
+
+        while (i < tareas.length && !encontrada) {
+          if (tarea == tareas[i]) {           
+            posicionTarea = i; 
+          }
+          i++;
+        }
+        return posicionTarea;
+      }
+      function deleteTask(posicion) {         
+        let eliminamos = prompt("¿Está seguro de que desea eliminar la tarea?");
+        eliminamos = eliminamos.toUpperCase();
+        if(eliminamos == "SI"){
+          tareas.splice(posicion, 1);
+          alert("La tarea ha sido eliminada");
+        }   
+        else if (eliminamos == "NO"){
+          alert("No se ha eliminado la tarea");
+        }     
+        else{
+          alert("No hemos entendido su respuesta. No se ha eliminado su tarea");
+        }
+      }
+    </script>
+  </body>
+</html>

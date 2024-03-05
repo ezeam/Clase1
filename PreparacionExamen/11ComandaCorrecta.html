@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>(M4) Exercici 6. Comanda correcta?</title>
+  </head>
+  <body>
+    <h4>
+      Crea un programa per a un restaurant on tenen tres plats (carn, pasta "amb
+      gluten" i risotto "amb lactosa").<br />
+      El programa ha de demanar el plat que vol l'usuari/ària, però també ha de
+      demanar si aquest/a té cap preferència o <br />
+      intolerància (vegà, intolerància al gluten o intolerància a la
+      lactosa).<br />
+      Si la persona demana un plat "que pot menjar" mostrarem per consola el
+      missatge "perfecte, comanda correcta", si no,<br />
+      es mostrarà el missatge "vostè no pot menjar aquest plat".
+    </h4>
+    <hr />
+    <h4>Platos:</h4>
+    <p>
+      <label for="plato">Seleccione el plato que desea: </label>
+      <select id="plato">
+        <option value="1">Carne</option>
+        <option value="2">Pasta con gluten</option>
+        <option value="3">Risoto con lactosa</option>        
+      </select>
+    </p>
+    <h4>Intolerancias:</h4>
+    <p>
+      <label for="vegano">Vegano</label>
+      <input id="vegano" type="checkbox" />
+    </p>
+    <p>
+      <label for="gluten">Intolerancia al gluten</label>
+      <input id="gluten" type="checkbox"/>   
+    </p>
+    <p>
+      <label for="lactosa">Inteolerancia a la lactosa</label>
+      <input id="lactosa" type="checkbox" />
+    </p>
+    <button onclick="verificar()">Verificar Menú</button>
+    <h3 id="resultado"></h3>
+
+    <script>
+      function verificar(){
+        let plato = parseInt(document.getElementById("plato").value);
+        let vegano = document.getElementById("vegano").checked;
+        let gluten = document.getElementById("gluten").checked;
+        let lactosa = document.getElementById("lactosa").checked;
+
+        switch(plato){
+          case 1:
+            if(vegano){
+              document.getElementById("resultado").innerHTML = "Comanda incorrecta, es usted vegano y ha seleccionado carne";
+            }
+            else{
+              document.getElementById("resultado").innerHTML = "Comanda correcta";
+            }
+            break;
+          case 2:
+            if(gluten){
+              document.getElementById("resultado").innerHTML = "Comanda incorrecta, es usted celíaco y ha seleccionado pasta";
+            }
+            else{
+              document.getElementById("resultado").innerHTML = "Comanda correcta";
+            }
+            break;
+          case 3:
+            if(lactosa){
+              document.getElementById("resultado").innerHTML = "Comanda incorrecta, es usted intolerante a la lactosa y ha seleccionado risotto con lactosa";
+            }
+            else{
+              document.getElementById("resultado").innerHTML = "Comanda correcta";
+            }
+            break;
+        }
+      }
+    </script>
+  </body>
+</html>

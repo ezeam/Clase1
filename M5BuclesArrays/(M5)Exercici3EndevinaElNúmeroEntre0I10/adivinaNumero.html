@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>(M5) Exercici 3. Endevina el número entre 0 i 10.</title>
+</head>
+<body>
+  <details>
+    <h1 strong>(M5) Exercici 3. Endevina el número entre 0 i 10.</h1>
+    <p>
+      Aquesta línia de codi:
+      Math.ceil((Math.random() * 10));
+      Retorna un número entre el 0 i el 10 de forma aleatòria.
+      L’exercici consisteix a què l’usuari/ària ha d'endevinar el número escollit aleatòriament pel programa.
+      El programa, demana números a l’usuari/ària fins que aquest encerti el número aleatori generat pel programa.
+      Un cop l’usuari/ària ha endevinat el número, es mostrarà per pantalla el següent missatge: “Enhorabona, el número era X”.
+    </p>
+    <hr/>
+  </details>
+  <br>
+  <br>
+  <br>
+  
+  <button onclick="jugar()">Jugar</button>
+    
+
+  <script>
+    function jugar(){
+      let numUsuario = 0;
+
+      let numRandom = Math.ceil((Math.random() * 10));
+      console.log("Número random: ", numRandom);      
+
+      while(numRandom !== numUsuario){
+        numUsuario = Number(prompt("Número equivocado, inténtelo otra vez: " , ""));
+      }
+
+      alert("¡Fantástico! Has ganado");
+    }
+  </script>
+</body>
+</html>

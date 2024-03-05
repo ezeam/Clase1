@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>(M7.1.) Exercici 6. Taula de multiplicar</title>
+</head>
+<body>
+  <h2>Tabla de multiplicar</h2>
+    <p>
+      L’usuari/ària introduirà un número (de l'1 al 10) per pantalla, 
+      i utilitzant un bucle, el programa li mostrarà la taula de multiplicar 
+      d’aquell número.
+    </p>
+    <hr />
+
+    <p>Introduzca un número del 1 al 10: <input id="numero" type="number"></p>
+    <button onclick="main()">Mostrar tabla</button>
+    <p id="resultado"></p>
+
+    <script>
+      function main(){
+        let numero = parseInt(document.getElementById("numero").value);
+        console.log("El numero introducido es: ", numero);
+        let i = 0;
+        let result = 0;
+        let tabla = " ";
+
+        if(numero >=1 && numero <=10){
+          for (i = 0; i<=10; i++){
+            result = numero * i;
+            console.log (i);
+            console.log(result);
+
+            tabla += numero + " x " + i + " = " + result + "<br>";             
+          }
+          document.getElementById("resultado").innerHTML = tabla;
+        }
+        else{
+          document.getElementById("resultado").innerHTML = "¡ERROR! El número introducido no es válido. Recuerde que ha de estar comprendido entre 1 y 10"
+        }
+
+        
+
+
+
+
+
+
+
+        
+      }
+    </script>
+  
+</body>
+</html>

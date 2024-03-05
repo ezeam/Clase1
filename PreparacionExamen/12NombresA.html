@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>(M5) Exercici 1. L'usuari/ària decideix quants noms vol introduir.</title>
+</head>
+<body>
+    <details>
+      <h3>L'usuari/ària decideix quants noms vol introduir</h3>
+      <p>Crea un programa que sol·liciti a l'usuari/ària quants noms desitja introduir.</p>
+      <p>Una vegada tenim aquest número, demanarem a l'usuari/ària tants noms de persona com ha dit prèviament i els emmagatzemarem en un Array.</p>
+      <p>Després, mostrarem per pantalla només els noms que comencen per la lletra “A”.</p>
+      <hr>
+    </details>
+
+    <p>¿Cuántos nombres va a introducir? <input id="numNombres" type="number"></p>
+    <button onclick="main()">Introducir nombres</button>
+    <p id="resultado"></p>
+
+    <script>
+      function main(){
+        let numNombres = parseInt(document.getElementById("numNombres").value);
+        console.log("Número de nombres: ", numNombres);
+        let nombres = [];
+
+        for (let i = 0; i < numNombres; i++){
+          nombres.push(prompt("Escriba un nombre: "));
+        }
+        console.table(nombres);
+
+        for(let i = 0; i < nombres.length; i++){
+          if(nombres[i].charAt(0).toUpperCase() == "A"){
+            alert(nombres[i]);
+          }
+        }
+
+      }
+    </script>
+  
+</body>
+</html>

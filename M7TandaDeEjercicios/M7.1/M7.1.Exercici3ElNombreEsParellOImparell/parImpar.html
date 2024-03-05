@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>(M7.1.) Exercici 3. El nombre és parell o imparell?</title>
+</head>
+<body>
+  <h2>¿Par o Impar?</h2>
+  <p>L’usuari/ària ha d'introduir un número i el programa ha de mostrar per pantalla si el número és parell o imparell.</p>
+  <hr>
+
+  <p>Introduzca un número: <input id="num" type="number"></p>
+  <button onclick="enviarNumero()">Enviar número</button>
+  <p id="resultado"></p>
+
+  <script>
+    function enviarNumero(){
+      let num1 = parseInt(document.getElementById("num").value);
+
+      if (esPar(num1) == true){
+        document.getElementById("resultado").innerHTML = `El número ${num1} es par`;
+      }
+      else{
+        document.getElementById("resultado").innerHTML = `El número ${num1} NO es par`;
+      }
+    }
+
+    function esPar(n){
+      let result = true;
+      if (n % 2 != 0){
+        result = false;
+      }
+      return (result);
+    }
+  </script>
+  
+</body>
+</html>

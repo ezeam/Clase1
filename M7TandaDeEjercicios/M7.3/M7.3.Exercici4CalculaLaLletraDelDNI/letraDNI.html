@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>(M7.3.) Exercici 4. Calcula la lletra del DNI.</title>
+  </head>
+  <body>
+    <h2>Calcula la lletra del DNI</h2>
+    <p>
+      L’usuari/ària ha d’introduir un DNI i el programa ha de dir si la lletra
+      és correcte <br />
+      o no amb el nombre de DNI. Si la lletra no és correcta, ha de dir quina
+      lletra és la <br />
+      correcta.<br />
+      Per calcular la lletra DNI has de prendre el número de DNI a verificar i
+      dividir-lo entre 23. <br />
+      La resta es reemplaça per una lletra que ja està assignada a aquest nombre
+      mitjançant la taula adjunta:
+      <br />Resto 0=>T // 1=>R // 2=>W // 3=>A // 4=>G // 5=>M // 6=>Y // 7=>F
+      // 8=>P // 9=>D // 10=>X <br />
+      11=>B // 12=>N // 13=>J // 14=>Z // 15=>S // 16=>Q // 17=>V // 18=>H //
+      19=>L // 20=>C <br />
+      21=>K // 22=>E
+    </p>
+    <hr />
+
+    <p>Introduzca el DNI: <input id="dni" type="text" /></p>
+    <button onclick="main()">Verificar</button>
+    <p id="resultado"></p>
+
+    <script>
+      function main() {
+        let dni = document.getElementById("dni").value;
+        let letraDni = "";
+        let numeroDni = 0;
+        let i = 0;
+        let letraCorrecta = "";
+        let letrasDni = ["T", "R", "W", "A", "G", "M","Y", "F", "P", "D","X","B","N", "J", "Z", "S", "Q", "V", "H", "L", "C", "K", "E"]
+        let posicionArrayLetrasDNI = 0;
+        if (dni.length == 9) {
+          letraDni = dni.charAt(8).toUpperCase();
+          console.log(letraDni);
+
+          numeroDni = dni.substring(0, dni.length - 1);
+          console.log(numeroDni);
+
+          for(let i = 0; i < letrasDni.length; i++){
+            posicionArrayLetrasDNI = numeroDni % 23
+            letraCorrecta = letrasDni[posicionArrayLetrasDNI];
+          }           
+
+          if (letraCorrecta == letraDni) {
+            document.getElementById("resultado").innerHTML =
+              "El Dni introducido es correcto";
+          } else {
+            document.getElementById(
+              "resultado"
+            ).innerHTML = `El DNI no es correcto. La letra debería ser la ${letraCorrecta}`;
+          }
+        } else {
+          document.getElementById("resultado").innerHTML =
+            "El Dni introducido no tiene el número de caracteres necesarios";
+        }   
+         
+      }
+    </script>
+  </body>
+</html>

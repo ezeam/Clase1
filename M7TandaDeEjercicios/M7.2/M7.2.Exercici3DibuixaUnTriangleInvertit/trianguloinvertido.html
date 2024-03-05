@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>(M7.2.) Exercici 2. Dibuixa un triangle</title>
+  </head>
+  <body>
+    <h2>Dibuixa un triangle invertit</h2>
+    <p>
+      Fes un programa que mostri el següent per pantalla:<br />
+      * * * * * * <br />
+      * * * * * <br />
+      * * * * <br />
+      * * * <br />
+      * * <br />
+      * <br />
+      El nombre de línies formades per “*” vindrà donat per un número que
+      l’usuari/ària introduirà per consola. Condició: En tot el codi del
+      programa només hi pot haver un * També, a poder ser, no utilitzis cap
+      mètode com repeat() o substring() de la classe String
+    </p>
+    <hr />
+
+    <p>
+      ¿Cuántas líneas desea que tenga su triángulo?
+      <input id="numLineas" type="number" />
+    </p>
+    <button onclick="main()">Pintar triángulo</button>
+    <p id="resultado"></p>
+
+    <script>
+      function main() {
+        let numLineas = parseInt(document.getElementById("numLineas").value);
+        let triangulo = " ";
+        for (i = 1; i <= numLineas; i++) {
+          for (j = numLineas; j >= i; j--) {
+            triangulo += "*";
+          }
+          console.log((triangulo += "<br>"));
+          triangulo += "<br>";
+        }
+        console.log("triangulo_2", triangulo);
+        document.getElementById("resultado").innerHTML = triangulo;
+      }
+    </script>
+  </body>
+</html>

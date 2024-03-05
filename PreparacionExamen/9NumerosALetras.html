@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>(M4) Exercici 4. Escriu Números en Lletres.</title>
+</head>
+<body>
+  <h4>Crea un programa que sol·liciti a l'usuari/ària que introdueixi un número de l'1 al 10 i mostri per pantalla el seu <br>
+    equivalent en lletres (per exemple, 1 es mostraria com "u", 2 com "dos", etc.).</h4>
+
+  <p>Introduzca un número del 1 al 10 <input type = "number" id ="numero"></p>
+  <button onclick="traducir()">Traducir a letras</button>
+  <p id="resultado"></p>
+
+  <script>
+    function traducir(){
+      let numero = parseInt(document.getElementById("numero").value);
+      console.log("Numero introducido: ", numero);
+
+      /*
+        switch(numero){
+          case 1: document.getElementById("resultado").innerHTML = "UNO";break;
+          case 2: document.getElementById("resultado").innerHTML = "DOS";break;
+          case 3: document.getElementById("resultado").innerHTML = "TRES";break;
+          case 4: document.getElementById("resultado").innerHTML = "CUATRO";break;
+          case 5: document.getElementById("resultado").innerHTML = "CINCO";break;
+          case 6: document.getElementById("resultado").innerHTML = "SEIS";break;
+          case 7: document.getElementById("resultado").innerHTML = "SIETE";break;
+          case 8: document.getElementById("resultado").innerHTML = "OCHO";break;
+          case 9: document.getElementById("resultado").innerHTML = "NUEVE";break;
+          case 10: document.getElementById("resultado").innerHTML = "DIEZ";break;
+          default: document.getElementById("resultado").innerHTML = "El número introducido no es correcto, inténtelo otra vez";
+        }  */
+        
+        if(numero >= 1 && numero <= 10){
+          if (numero==1){
+            document.getElementById("resultado").innerHTML = "UNO";
+          }
+          if (numero==2){
+            document.getElementById("resultado").innerHTML = "DOS";
+          }
+          if (numero==3){
+            document.getElementById("resultado").innerHTML = "TRES";
+          }
+          if (numero==4){
+            document.getElementById("resultado").innerHTML = "CUATRO";
+          }
+          if (numero==5){
+            document.getElementById("resultado").innerHTML = "CINCO";
+          }
+          if (numero==6){
+            document.getElementById("resultado").innerHTML = "SEIS";
+          }
+          if (numero==7){
+            document.getElementById("resultado").innerHTML = "SIETE";
+          }
+          if (numero==8){
+            document.getElementById("resultado").innerHTML = "OCHO";
+          }
+          if (numero==9){
+            document.getElementById("resultado").innerHTML = "NUEVE";
+          }
+          if (numero==10){
+            document.getElementById("resultado").innerHTML = "DIEZ";
+          }
+        }
+        else {
+          document.getElementById("resultado").innerHTML = "El número introducido no es correcto, inténtelo otra vez";
+        }
+    }
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>(M7.2.) Exercici 7. Calcula si l'any és de traspàs.</title>
+</head>
+<body>
+  <h2>Calcula si l'any és de traspàs</h2>
+    <p>L’usuari/ària introdueix un any “a” per teclat
+      i el programa crida a un mètode que indiqui si l’any és de traspàs o no.</p>
+  <p>Introduzca un año para saber si es bisiesto: <input id="year" type="number"></p>
+  <button onclick="main()">¿Es bisiesto?</button>
+  <p id = "resultado"></p>
+
+  <script>
+    function main(){
+      let year = parseInt(document.getElementById("year").value);
+
+      if (calcularBisiesto(year) == true){
+        document.getElementById("resultado").innerHTML = `El año ${year} es bisiesto.`
+            }
+      else {
+        document.getElementById("resultado").innerHTML = `El año ${year} no es bisiesto.`
+      }
+      
+    }
+    function calcularBisiesto(a){
+      let bisiesto = false;
+
+      if(a%400 == 0){
+        bisiesto = true;
+      }
+      else{
+        if(a%4 == 0 && a%100 != 0){
+          bisiesto = true;
+        }
+      }
+      return bisiesto;
+    }
+  </script>
+</body>
+</html>

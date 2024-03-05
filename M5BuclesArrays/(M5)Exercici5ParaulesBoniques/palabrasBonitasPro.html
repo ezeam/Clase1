@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <details>
+      <h1 strong>(M5) Exercici 5. Paraules boniques.</h1>
+      <p>
+        Modifica l'exercici 3 del Mòdul 4. Has de demanar paraules fins que
+        tinguis tres boniques. Has d'anar guardant les paraules boniques en un
+        array i quan tinguis les tres, imprimir-les.
+      </p>
+      <hr />
+    </details>
+    <br />
+    <br />
+    <br />
+    <button onclick="esBonita()">Introducir nombres</button>
+    <p id="mensaje"></p>
+    <script>
+      function esBonita(){
+        const arrayPalabras = [];
+        
+        do{
+          let palabraUsuario = prompt("Introduzca una palabra: ", "");
+          let longitudPalabra = palabraUsuario.length;
+          console.log("La palabra tiene", longitudPalabra);
+          let primeraLetra = palabraUsuario.charAt(0).toUpperCase();
+          console.log("La primera letra es:", primeraLetra);
+          let mensaje = " ";
+          
+          if (
+            (longitudPalabra == 9 && primeraLetra == "H") 
+              || (longitudPalabra == 5 && primeraLetra == "P")){
+            mensaje = "La palabra introducida es bonita";
+            alert (mensaje);
+            arrayPalabras.push(palabraUsuario);
+            console.log("La palabra se guarda: ", palabraUsuario);
+          }
+           else {
+           mensaje = "Lo lamentamos, la palabra indicada no es bonita";
+            alert (mensaje);
+          }
+      }while(arrayPalabras.length<3);
+
+      for (i=0; i<arrayPalabras.length; i++){
+        alert(arrayPalabras[i]);
+      }
+    }
+    </script>
+  </body>
+</html>

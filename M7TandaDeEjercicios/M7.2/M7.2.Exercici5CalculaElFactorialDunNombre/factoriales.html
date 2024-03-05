@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>(M7.2.) Exercici 5. Calcula el factorial d'un nombre</title>
+</head>
+<body>
+  <h2>Calcula el factorial d'un nombre</h2>
+    <p>Realitzar un programa on l’usuari/ària introdueix un número i el programa crida 
+      a un mètode que retorna el factorial del número introduït.
+      El factorial d'un nombre n (enter, no negatiu) és el producte de tots els 
+      nombres enters positius inferiors o iguals a n. </p>
+    <hr>
+
+    <p>Introduzca un número <input id="numUsuario" type="number" ></p>
+    <button onclick="main()">Calcular factorial</button>
+    <p id="resultado"></p>
+
+    <script>
+      function main(){
+        let numUsuario = parseInt(document.getElementById("numUsuario").value);
+        console.log ("Número introducido: ", numUsuario);
+
+        if (numUsuario > 0){
+          document.getElementById("resultado").innerHTML = calculaFactorial(numUsuario);
+        }
+        else if (numUsuario == 0){
+          document.getElementById("resultado").innerHTML = "1"
+        }
+        else {
+          document.getElementById("resultado").innerHTML = "Lo lamentamos, pero no se puede calcular el factorial de un número negativo."
+        }        
+      }
+      function calculaFactorial(n){
+        let result = 1;
+        let i = 0;
+
+        for(i = n; i > 0; i--){
+          result *= i;
+          console.log(result);
+        }
+        return result;
+      }
+    </script>
+  
+</body>
+</html>
