@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>(M7.3.) Exercici 7. Botiga de surf</title>
+  </head>
+  <body>
+    <h3>Botiga de surf:</h3>
+    <p>
+      Trabajaremos con alerts y prompts. <br />
+      Escriu un programa per una botiga de surf on se li exposarà un menú als
+      usuaris i usuàries amb les següents opcions:
+      <br />1-Calcular material taula (crida a una funció que rep un boolean que
+      representi si la persona té experiència o no) si té, retornarà el missatge
+      "taula de fibra", si no retornarà el missatge "taula d'espuma". (demanem
+      amb un popup si l'usuari/ària si té experiència o no) <br />2-Imprimir
+      forecast (crida a una funció que rep l'alçada de l'onada en metres). Si
+      l'alçada és més de 2 metres, imprimirà "onades grans", si no imprimirà
+      "onades petites". (Introduïm l'alçada de les onades amb un popup)
+      <br />3-Calcula el cost per reserva: crida una funció que rep els minuts
+      de reserva i el tipus de taula reservada i et retorna el cost de la
+      reserva. Demanem per consola els minuts i els tipus: <br />Taula tipus
+      espuma: 20 € cada 60 min. <br />Taula tipus fibra: 35 € cada 60 min.
+      <br />4-Sortir del programa. Fins que la persona no escrigui un 4, el
+      programa ha de continuar mostrant el menú i donar la possibilitat de fer
+      accions.
+    </p>
+    <button onclick="main()">Acceder</button>
+
+    <script>
+      //HAY QUE HACER UN SWTICH DENTRO DE UN WHILE. hASTA QUE NO PONEN 4 NO SALES DEL PROGRAMA
+      function main() {
+        
+        let experiencia = true;
+        let metroOla = 0;
+        let minutos = 0;
+        let tipoTabla = "";
+        let costeReserva = 0;        
+        let seleccion = 0;
+        let menuTabla = "ELIJA EL TIPO DE TABLA\n1.Fibra\n2.Espuma";
+
+        do {
+          seleccion = parseInt(
+          prompt(
+            "¿Qué acción desea realizar?:\n1-Calcular material tabla\n2-Imprimir forecast\n3-Calcular coste por reserva\n4-Salir"
+          )
+        );          
+            switch (seleccion) {
+              case 1: //Calcular material tabla
+                experiencia = confirm ("¿Tiene experiencia haciendo surf? (OK-si/ Cancel-no)");
+                alert(escogeTabla(experiencia));              
+
+                break;
+              case 2: //Imprimir forecast
+                metroOla = parseInt(prompt("¿Cuántos metros tiene la ola?"));
+                alert(calculaOla(metroOla));
+                break;
+              case 3: //Calcular coste por reserva
+                minutos = parseInt(prompt("¿Cuántos minutos desea reservar la tabla?"));
+                do{
+                  tipoTabla = prompt(menuTabla);
+                }while(tipoTabla < 1 || tipoTabla > 2);                
+                console.log("Tipo tabla:", tipoTabla);    
+                costeReserva = alert(`El coste de su reserva es: ${calcularCoste(minutos, tipoTabla)} €.`);                 
+                break;
+              case 4: //Salir                 
+                alert("Va a salir de la aplicación");
+                window.close();
+                break;
+              default : 
+              alert("Tiene que introducir un número del 1 al 4");
+            }          
+        }while(seleccion != 4);
+      }
+
+        function escogeTabla(tieneExperiencia) {
+          let msj = "";
+          if (tieneExperiencia) {
+            msj = "Tabla de fibra";
+          } else {
+            msj = "Tabla de espuma";
+          }
+          return msj;
+        }
+        function calculaOla(metro) {
+          let msj = "";
+          if (metro >= 2) {
+            msj = "Olas grandes";
+          } else {
+            msj = "Olas pequeñas";
+          }
+          return msj;
+        }
+        function calcularCoste(tiempo, tabla) {
+          
+          console.log(typeof(tiempo));
+          let coste = 0;
+          coste = (tabla == 1)? ((35 * tiempo) / 60) : ((20 * tiempo) / 60);
+          console.log(coste); 
+                   
+          return coste;
+        }      
+    </script>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>(M8.2) Exercici 2. Client i Vol</title>
+</head>
+<body>
+  <details>
+  <h1>CLIENTE Y VUELOS</h1>
+  <p>Fes un programa que permeti donar d'alta, modificar, veure i eliminar vols. 
+    La classe vol ha de tenir els atributs: distància (en km), número de vol, 
+    companyia, nombre de passatgers, nombre de motors. També haurà de contenir un 
+    constructor complet i els getters i setters necessaris. A més, ha de tenir un 
+    mètode calculaPetjadaCarboni() que ha de calcular el CO₂ emès per l'avió tenint 
+    en compte que cada motor allibera 0,1 tones de CO₂ cada 1000 km de distància.
+    <br>
+    Les funcionalitats del programa són les següents: 
+    <br>   
+    1- La funció crearVol() ha de rebre les dades per crear un vol i afegir-lo a un array de vols.
+    2- La funció donarDeBaixaVol() ha de rebre el número de vol a donar de baixa. Si el vol està 
+    dintre de l'array, l'eliminarem i mostrarem un missatge informatiu per pantalla, si no, 
+    avisarem per pantalla que el vol no es troba a la nostra aplicació.
+    3- La funció veureVol() ha de rebre el número de vol a mostrar. Si el vol està dintre 
+    de l'array, mostrarem tots els seus atributs i també cridarem al mètode 
+    calculaPetjadaCarboni(), si no, avisarem per pantalla que el vol no es troba a la nostra aplicació.
+    4- La funció modificarVol() ha de rebre el número de vol a modificar. Si el vol està dintre de 
+    l'array, demanarem quin atribut es vol modificar, farem la modificació pertinent i mostrarem un
+    missatge informatiu per pantalla. Si no, avisarem per pantalla que el vol no es troba a la nostra aplicació.</p>
+  </details>
+
+  <div id="container">
+    <h1>Indique la opción que desea realizar:</h1>
+    <div>
+      <p> <button class='btn_menu' id="agregar" onclick="agregar()">Crear vuelo</button>             
+          <button class='btn_menu' id="mostrar" onclick="mostrar()">Ver vuelo</button>
+          <button class='btn_menu' id="eliminar" onclick="eliminar()">Eliminar vuelo</button>
+          <button class='btn_menu' id="modificar" onclick="modificar()">Modificar vuelo</button>
+          <button class='btn_menu' id="salir" onclick="salir()">Salir</button>
+      </p>
+    </div>
+    <p id="resultado"></p>
+
+
+    
+
+    <!--ENLAZAMOS LA CLASE:--> 
+  <script src = "./js/claseVuelo.js"></script>  
+  <!--ENLAZAMOS CRUD-->
+  <script src="./js/crudBis.js"></script>
+</body>
+</html>

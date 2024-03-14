@@ -3,75 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./css/estilos.css" rel="stylesheet">
   <body>
     <div id="container">
         <h1 id="tema"></h1>
-        <img id="imagen" alt="">
-        <p> <button id="retroceder" onclick="retroceder()">Retroceder</button>
-            <span id="nombreImagen"></span>
-            <button id="avanzar" onclick="avanzar()">Avanzar</button>
-        </p>
+        <div>
+          <p> <button class='btn_menu' id="agregar" onclick="agregar()">Añadir</button>             
+              <button class='btn_menu' id="mostrar" onclick="mostrar()">Mostrar</button>
+              <button class='btn_menu' id="eliminar" onclick="eliminar()">Eliminar</button>
+              <button class='btn_menu' id="modificar" onclick="modificar()">Modificar</button>
+              <button class='btn_menu' id="salir" onclick="salir()">Salir</button>
+          </p>
+        </div>
+
+        <div style="text-align: center"><img id="imagen" src="" alt="" title="" ></div>
+        
+        <div>
+          <p> <button class='btn_menu' id="retroceder" onclick="retroceder()">Retroceder</button>
+              <span id="nombreImagen"></span>
+              <button class='btn_menu' id="avanzar" onclick="avanzar()">Avanzar</button>
+          </p>
+        </div>
         <p id="descripcion"></p>
     </div>
-
-    <script>
-        // Variables. Al estar fuera de las funciones son variables globales
-        //guarda la ruta de las imágenes, en este caso una subcarpeta llamada img
-        const RUTA = './img/';
-        //array de objeto de imagenes. Indicaracá todas las imágenes que se quieran mostrar
-        const imagenes = [
-        {
-          imagen: 'knightly.jpg',
-          nombre: "Keira Knightley",
-          titulo: "Knightley",
-          descripcion:"Actriz británica"
-        },
-        {
-          imagen: 'portman.jpg',
-          nombre: "Natalie Portman",
-          titulo: "Portman",
-          descripcion:"Actriz y directora americana"
-        },
-        {
-          imagen: 'reves.jpg',
-          nombre: "Keanu Reeves",
-          titulo: "Reeves",
-          descripcion:"Actor americano"
-        }              
-        ];
-		let posicion = 0;
-    console.log('posicion -->', posicion)
-    mostrarImagen();
-	
-        function avanzar(){         
-            posicion++;            
-            if (posicion >= imagenes.length){                
-                posicion = 0;                                
-            }
-            console.log('posicion avanzar -->', posicion)
-            mostrarImagen();
-        }
-        function mostrarImagen(){
-            let imagen = RUTA + imagenes[posicion].imagen;
-            console.log('imagen =>', imagen)
-            document.getElementById("imagen").src = imagen;
-            document.getElementById("nombreImagen").innerHTML = imagenes[posicion].nombre;
-            document.getElementById("descripcion").innerHTML = imagenes[posicion].descripcion;
-            document.getElementById("imagen").title = imagenes[posicion].titulo;
-            
-        }
-        function retroceder(){                 
-            if(posicion == 0){ 
-                posicion = imagenes.length -1;  
-            }
-            else {
-              posicion--;    
-            }
-            console.log('posicion retroceder -->', posicion)
-            mostrarImagen();
-        }
-
-
-    </script>
+  <!--ENLAZAMOS LA CLASE:--> 
+  <script src = "./js/claseImagenes.js"></script>
+  <!--ENLAZAMOS LAS DATOS:-->
+  <script src="./js/imagenes.js"></script>
+  <!--ENLAZAMOS LAS OPERACIONES:--> 
+  <script src="./js/main.js"></script> 
+  <!--ENLAZAMOS CRUD-->
+  <script src="./js/crud.js"></script>
+   
 </body>
 </html>

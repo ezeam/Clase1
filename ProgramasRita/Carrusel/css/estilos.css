@@ -47,8 +47,8 @@ li {margin-bottom: .5em;}
 }
 
 #imagen {
-   /* width: 640px;*/
-   border: 1px solid lightsteelblue;
+   width: 640px;
+   border: 1px solid lightsteelblue;   
 }
 #nombreImagen {
    /* background-color: yellow; */

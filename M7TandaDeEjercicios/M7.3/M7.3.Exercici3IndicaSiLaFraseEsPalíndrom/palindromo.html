@@ -1,90 +1,78 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>(M7.3.) Exercici 3. Indica si la frase és palíndrom.</title>
-</head>
-<body>
-  <h2>Indica si la frase és palíndrom</h2>
-  <p>L’usuari/ària ha d’introduir una frase i el programa ha de dir si la frase és un palíndrom</p>
-  <hr />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>(M7.3.) Exercici 3. Indica si la frase és palíndrom.</title>
+  </head>
+  <body>
+    <h2>Indica si la frase és palíndrom</h2>
+    <p>
+      L’usuari/ària ha d’introduir una frase i el programa ha de dir si la frase
+      és un palíndrom
+    </p>
+    <hr />
 
-  <p>Introduzca una frase: <input id="frase" type="text"></p>
-  <button onclick="main()">¿Es palíndromo?</button>
-  <p id="resultado"></p>
+    <p>Introduzca una frase: <input id="frase" type="text" /></p>
+    <button onclick="main()">¿Es palíndromo?</button>
+    <p id="resultado"></p>
 
-  <script>
-    function main(){
-      let frase = document.getElementById("frase").value;
-      let fraseLimpia = "";
-      let fraseGirada = "";      
+    <script>
+      const casosA = "aàáâ";
+      const casosE = "eèéêë";
+      const casosI = "iìíîï";
+      const casosO = "oòóô";
+      const casosU = "uùúûü";
+      const CONSONANTES = "bcçdfghjklmnñpqrstvwxyz";
 
-      frase = frase.toLowerCase();
-      //console.log(frase);
+      function main() {
+        let frase = document.getElementById("frase").value;
+        frase = frase.toLowerCase();
+        console.log("Frase en minúsculas: ", frase);
 
-      fraseLimpia = limpiarString(frase);
-      console.log("Frase limpia: ", fraseLimpia);
+        let fraseLimpia = limpiarString(frase);
+        console.log("Frase limpia: ", fraseLimpia);
 
-      fraseGirada = girarString(fraseLimpia);
-      console.log("Frase girada: ", fraseGirada);
+        let fraseGirada = girarString(fraseLimpia);
+        console.log("Frase girada: ", fraseGirada);
 
-      if(stringIguales(fraseGirada, fraseLimpia)){
-        document.getElementById("resultado").innerHTML = "Genial! La frase es palíndromo!"
+        let resultado = " ";
+          if(fraseGirada == fraseLimpia){
+            resultado = `La frase ${frase} SÍ es un palíndromo`;
+          }
+          else{
+            resultado = `La frase ${frase} NO es un palíndromo`;
+          }
+        document.getElementById("resultado").innerHTML = resultado;
       }
-      else{
-        document.getElementById("resultado").innerHTML = "La frase no es palíndromo"
-      }
-    }
-    function limpiarString(frase){
-      let fraseLimpia = "";
-      let palabraFinal = "";
-      let i = 0;
+      function limpiarString(frase) {
+        let fraseLimpia = "";   
 
-      for(i = 0; i < frase.length; i++){
-        fraseLimpia = frase[i];
-       // console.log(fraseLimpia);
-        if(frase.includes("á", "à", "ä")){
-          fraseLimpia = "a";          
+        for (let i = 0; i < frase.length; i++) {
+          if (casosA.includes(frase.charAt(i))) {
+            fraseLimpia += "a";
+          } else if (casosE.includes(frase.charAt(i))) {
+            fraseLimpia += "e";
+          } else if (casosI.includes(frase.charAt(i))) {
+            fraseLimpia += "i";
+          } else if (casosO.includes(frase.charAt(i))) {
+            fraseLimpia += "o";
+          } else if (casosU.includes(frase.charAt(i))) {
+            fraseLimpia += "u";
+          } else if (CONSONANTES.includes(frase.charAt(i))) {
+            fraseLimpia += frase.charAt(i);
+          }
         }
-        if (frase.includes("é", "è", "ë")){
-          fraseLimpia = "e";
-        }
-        if (frase.includes("í", "ì", "ï")){
-          fraseLimpia = "i";
-        }
-        if (frase.includes("ó", "ò", "ö")){
-          fraseLimpia = "o";
-        }
-        if (frase.includes("ú", "ù", "ü")){
-          fraseLimpia = "u";
-        }
-        if (frase.includes(" ", ".", ",", ";")){
-          fraseLimpia = "";
-        }  
-          palabraFinal += fraseLimpia;   
+        return fraseLimpia;
       }
-      //console.log(palabraFinal);
-      return palabraFinal;
-    }
+      function girarString(frase) {
+        let stringGirada = "";
 
-    function girarString(frase){
-      let stringGirada = "";
-
-      for(let i = frase.length-1; i >= 0; i--){
-        stringGirada += frase[i];
+        for (let i = frase.length; i >= 0; i--) {
+          stringGirada += frase.charAt(i);
+        }
+        return stringGirada;
       }
-      return stringGirada;
-    }
-    function stringIguales(fraseGirada, fraseLimpia){
-      let sonIguales = false;
-      if(fraseLimpia == fraseGirada){
-        sonIguales = true;
-      }
-      return sonIguales; 
-    }
-    
-  </script>
-  
-</body>
+    </script>
+  </body>
 </html>
