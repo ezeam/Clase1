@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>(M8.1.) Exercici 1. Mètodes d'array</title>
+</head>
+<body>
+  <h2>Métodes d'array</h2>
+    <p>Donat aquest array on hi ha 5 persones: <br>
+
+      const personas = [<br>
+      {
+      nombre: "Juan",
+      dni: "12345678",
+      hobbies: ["leer", "bailar"]
+      },<br>
+      {
+      nombre: "María",
+      dni: "87654321",
+      hobbies: ["pintar", "correr", "viajar"]
+      },<br>
+      {
+      nombre: "Pedro",
+      dni: "98765432",
+      hobbies: ["cocinar", "ver películas"]
+      },<br>
+      {
+      nombre: "Laura",
+      dni: "54321678",
+      hobbies: ["hacer deporte", "viajar"]
+      },<br>
+      {
+      nombre: "Carlos",
+      dni: "87651234",
+      hobbies: ["tocar la guitarra", "hacer deporte"]
+      }
+      ];</p>
+      <ul>
+        <li>1-Trobar una persona pel seu DNI mitjançant el mètode find. Es demana a l’usuari que introdueixi el DNI a cercar, i llavors s’informa de si la persona està 
+           donada d’alta o no a l’aplicació.</li><button onclick="find()">Ejecuta</button>
+       <li>2-Trobar la posició d’una persona dintre de l’array mitjançant el mètode findIndex. Es demana a l’usuari que introdueixi el DNI a cercar, i llavors s’informa 
+            de la posició de la persona a l’array.</li><button onclick="findIndex()">Ejecuta</button>
+        <li>3-Mostrar les persones que tenen un hobby en concret mitjançant el mètode filter. Es demana a l’usuari que introdueixi un hobby, i llavors es mostren 
+            les persones que tenen aquest hobby a la seva llista de hobbys.</li><button onclick="filter()">Ejecuta</button>
+        <li>4-Mostrar el total de hobbys que tenen les persones mitjançant el mètode reduce.</li><button onclick="reduce()">Ejecuta</button>
+        <li>5-Verificar si alguna persona té un hobby en concret mitjançant la combinació dels mètodes some i includes. Es demana a l’usuari que introdueixi el 
+           hobby a cercar, i llavors s’informa de si alguna persona té el hobby.</li><button onclick="someIncludes()">Ejecuta</button>
+        <li>6-Trobar la primera persona amb un hobby en concret mitjançant la combinació dels mètodes find i includes. Es demana a l’usuari que introdueixi el 
+            hobby, i llavors es mostra la primera persona que té el hobby.</li><button onclick="findIncludes()">Ejecuta</button>
+        <li>7-Crear un array nou amb els noms de totes les persones en majúscules mitjançant el mètode map.</li><button onclick="map()">Ejecuta</button>   
+      </ul>
+      <p id="resultado"></p>
+
+      <script>
+        const personas = [
+      {
+      nombre: "Juan",
+      dni: "12345678",
+      hobbies: ["leer", "bailar"]
+      },
+      {
+      nombre: "María",
+      dni: "87654321",
+      hobbies: ["pintar", "correr", "viajar"]
+      },
+      {
+      nombre: "Pedro",
+      dni: "98765432",
+      hobbies: ["cocinar", "ver películas"]
+      },
+      {
+      nombre: "Laura",
+      dni: "54321678",
+      hobbies: ["hacer deporte", "viajar"]
+      },
+      {
+      nombre: "Carlos",
+      dni: "87651234",
+      hobbies: ["tocar la guitarra", "hacer deporte"]
+      }
+      ]
+        function find(){
+          let dniBuscar = prompt("Indique el Dni del usuario que busca:");
+          let existe = personas.find(persona => persona.dni == dniBuscar);
+          
+          if(existe === undefined){
+            alert("Lo lamentamos pero en DNI indicado no se encuentra en la base de datos");
+          }
+          else{
+            document.getElementById("resultado").innerHTML = `Nombre: ${existe.nombre} // DNI: ${existe.dni} // Hobbies: ${existe.hobbies}`;             
+            alert("El cliente existe");
+          } 
+        }
+
+        function findIndex(){
+          let dniBuscar = prompt("Indique el Dni del usuario que busca:");
+          let indice =  personas.findIndex(persona => persona.dni == dniBuscar);
+          if(indice >= 0){
+            alert(`El Dni ${dniBuscar} se encuentra en la posición ${indice}`);
+          }
+          else{
+            alert(`El Dni ${dniBuscar} no se se encuentra en la base de datos`);
+          }
+        }
+
+        function filter(){
+          let hobbieBuscar = prompt("Indique el hobbie que desea buscar:");
+          let encontrados = personas.filter(persona => persona.hobbies.includes(hobbieBuscar));
+          console.log(encontrados);
+          if (encontrados.length == 0){
+            alert("Lo lamentamos pero el hobbie indicado no lo comparte ninguna de las personas");
+          }
+          else{ 
+            encontrados.forEach(encontrado => alert(`Nombre: ${encontrado.nombre} // DNI: ${encontrado.dni} // Hobbies: ${encontrado.hobbies}`));  //Con innerhtml no funciona, solo printea el último que encuentra. Creo que porque necesita más de un párrafo "resultado".   
+          }
+        }
+
+        function reduce(){
+          alert(personas.reduce((allHobbies, persona) => {
+            return [...allHobbies, ...persona.hobbies];
+          }, []));
+        }
+
+        function someIncludes(){
+          let hobbieBuscar = prompt("Indique el hobbie que desea buscar:");
+          let existeHobbie = personas.some(persona => persona.hobbies.includes(hobbieBuscar));
+          if(existeHobbie){
+            alert(`El hobbie "${hobbieBuscar}" existe en la lista de hobbies de alguna de las personas`);
+          }
+          else{
+            alert(`Lo lamentamos pero el hobbie "${hobbieBuscar}" NO existe`);
+          }
+        }
+
+        function findIncludes(){
+          let hobbieBuscar = prompt("Indique el hobbie que desea buscar:");
+          let encontrado = personas.find(persona => persona.hobbies.includes(hobbieBuscar));
+          if (encontrado){
+            alert(`La  primera persona que tiene el hobbie ${hobbieBuscar} es: Nombre: ${encontrado.nombre} // DNI: ${encontrado.dni} // Hobbies: ${encontrado.hobbies}`);
+          }
+          else{
+            alert(`Lo lamentamos pero el hobbie "${hobbieBuscar}" NO existe`);
+          }             
+        }
+
+        function map(){
+          let nombresMayusculas = personas.map(persona => persona.nombre.toUpperCase());
+          console.log(nombresMayusculas);
+          alert(nombresMayusculas);
+        }
+      </script>
+  
+</body>
+</html>

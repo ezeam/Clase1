@@ -39,7 +39,25 @@ class Cliente{
   setNombre(nombre){
     return this.nombre = nombre;
   }
-  setApellido(apellido)
+  setApellido(apellido){
+    return this.apellido = apellido;
+  }
+  setNacionalidad(nacionalidad){
+    return this.nacionalidad = nacionalidad;
+  }
+  setEdad(edad){
+    return this.nacionalidad = this.nacionalidad;
+  }
+
   //Métodos propios
+  toString(){
+    return `DNI: ${this.dni}
+    Nombre: ${this.nombre}
+    Apellido: ${this.apellido}
+    Nacionalidad: ${this.nacionalidad}
+    Edad: ${this.edad}`;  
+  }
+  
   //Métodos generales
+
 }

@@ -29,11 +29,20 @@
         </ul> 
       </p>
       <img src="uml.png"> 
-
     </div>
   </details>
-  
 
-  <script src="cliente.js"></script>
+  <h1>indica la opción que quieres realizar:</h1>
+    <div>
+      <p> <button class='btn_menu' id="agregar" onclick="agregar()">Crear cliente</button>             
+          <button class='btn_menu' id="eliminar" onclick="eliminar()">Eliminar cliente</button>
+          <button class='btn_menu' id="crearVuelo" onclick="crearVuelo()">Crear vuelo de un cliente</button>
+          <button class='btn_menu' id="mediaEdad" onclick="mediaEdad()">Mostrar media de edad de los mayores de edad</button>
+          <button class='btn_menu' id="huellaCarbonoCliente" onclick="huellaCarbonoCliente()">Calcular huella de carbono de un cliente</button>
+          <button class='btn_menu' id="mediaHuellaCarbono" onclick="mediaHuellaCarbono()">Calcular la media de la huella de carbono de todos los clientes</button>
+          <button class='btn_menu' id="salir" onclick="salir()">Salir</button>
+      </p>
+  <script src="./js/Cliente.js"></script>
+  <script src="./js/crudBis.js"></script>
 </body>
 </html>
