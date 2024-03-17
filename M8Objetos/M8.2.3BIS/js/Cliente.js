@@ -71,5 +71,5 @@ class Cliente{
   addVuelo(vuelo){  //CUANDO LLAMEMOS A ESTE MÉTODO NOS METERÁ UN VUELO EN LA ARRAY DE VUELOS DEL CLIENTE
     this.vuelos.push(vuelo);
   }
-
 }
+
